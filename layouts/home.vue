@@ -1,7 +1,7 @@
 <template>
-  <section class="app">
-    <BaseHeader/>
-    <NuxtPage/>
+  <section class="home">
+    <slot/>
+    <h1>test</h1>
   </section>
 </template>
 
