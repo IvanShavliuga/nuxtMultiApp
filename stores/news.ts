@@ -1,36 +1,21 @@
 import { defineStore, createPinia, setActivePinia } from 'pinia'
-import { useNuxtApp } from 'nuxt/app'
+import {  Post } from '@/types/news'
 
 const pinia = createPinia()
 
 export default { store: setActivePinia(pinia) }
 
-type Post = {
-    id: number;
-    userId: number;
-    groupId: number;
-    date:string;
-    time:string;
-    title:string;
-    desc:string;
-    like:[number];
-    repost: [number];
-    comments: [number];
-    views: [number];
-    cat: [string];
-    type: "post";
-    likeclick: boolean;
-}
 class News {
     constructor() {
         this.posts = []
+        console.log('constructor')
     }
     posts:Post[] = []
     addPosts(posts:Post[] = []) {
         console.log('addPosts')
         console.log(posts)
         if(posts.length) {
-            this.posts.push(posts)
+            this.posts.push(...posts)
         }
 
     }
@@ -38,12 +23,13 @@ class News {
 
 export const useNewsStore = defineStore('news', {
   state: () => ({
-    news:new News()
+   news:  new News()
   }),
   getters: {
     getNews: (state) => state.news?.posts ?? [],
   },
   actions: {
+    
     async addPosts() {
     const r = await useFetch('/api/news')
     if (r.status.value === 'success') {

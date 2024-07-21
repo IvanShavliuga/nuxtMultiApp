@@ -2,27 +2,17 @@
   <NuxtLayout name="home">
     <NuxtPage/>
     <h1>Последние новости</h1>
-    <pre>
-        {{ getNews }}
-    </pre>
-     <pre>
-        {{ posts }}
-    </pre>
-    <!-- <ul v-show="false">
-        <li v-for="news in getNews.posts" :key="news.id">
-            {{ news }}
-        </li>
-    </ul> -->
+    <PostsList :posts="getNews"/>
   </NuxtLayout>
 </template>
 
 <script setup lang="ts">
 import { useNewsStore } from '@/stores/news'
-const { getNews, addPosts } = useNewsStore()
+const { getNews, addPosts, init } = useNewsStore()
 
 const load = ref(false)
-const posts = computed(() => getNews?.posts ?? [])
- addPosts().then((r) => {
+// init()
+addPosts().then((r) => {
     console.log('then')
     load.value = true
     console.log(r)
