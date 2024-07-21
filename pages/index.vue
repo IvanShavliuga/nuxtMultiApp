@@ -3,17 +3,36 @@
     <NuxtPage/>
     <h1>Последние новости</h1>
     <pre>
+        {{ getNews }}
+    </pre>
+     <pre>
         {{ posts }}
     </pre>
+    <!-- <ul v-show="false">
+        <li v-for="news in getNews.posts" :key="news.id">
+            {{ news }}
+        </li>
+    </ul> -->
   </NuxtLayout>
 </template>
 
 <script setup lang="ts">
-const posts = ref([])
-const r =  useFetch('/api/news')
-if (r.status.value === 'success') {
-    posts.value = r.data.value.posts
-}
+import { useNewsStore } from '@/stores/news'
+const { getNews, addPosts } = useNewsStore()
+
+const load = ref(false)
+const posts = computed(() => getNews?.posts ?? [])
+ addPosts().then((r) => {
+    console.log('then')
+    load.value = true
+    console.log(r)
+    console.log('getNews')
+    console.log(getNews)
+    // posts.value = r
+    // console.log(posts)
+})
+
+console.log(getNews)
 </script>
 
 <style>
