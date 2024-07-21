@@ -1,6 +1,6 @@
 <template>
-  <ul>
-    <li v-for="p of posts" :key="p.id">
+  <ul class="postsList">
+    <li v-for="p of posts" :key="p.id" class="item">
         <PostCard :post="p"/>
     </li>
   </ul>
@@ -14,6 +14,14 @@ const props = defineProps({
 })
 </script>
 
-<style>
-
+<style scoped lang="less">
+.postsList {
+   display: flex;
+   justify-content: flex-start;
+   gap: 8px;
+   flex-wrap: wrap;
+   list-style: none;
+   width: calc((320px + 2 * 16px) * 3 + 8px * 3);
+   margin: 0 auto;
+}
 </style>
