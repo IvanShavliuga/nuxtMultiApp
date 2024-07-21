@@ -1,7 +1,6 @@
 <template>
   <section class="home">
     <slot/>
-    <h1>test</h1>
   </section>
 </template>
 
