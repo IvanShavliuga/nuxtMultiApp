@@ -4,6 +4,7 @@
     <div class="postCard__categories">
         <BaseChips :list="post.cat"/>
     </div>
+    <p class="postCard__author">{{ post.group?.name ?? post.user.name }}</p>
     <p class="postCard__desc">{{ post.desc }}</p>
     <BaseSocialStat
       :like="post.like.length"
@@ -43,6 +44,11 @@ const props = defineProps({  post: Object as PropType<Post> })
         display: flex;
         justify-content: flex-start;
         gap: 8px;
+    }
+    &__author {
+        color: black;
+        font-weight: 700;
+        margin-bottom: 8px;
     }
     @media screen and (max-width: 450px) {
         width: auto;
