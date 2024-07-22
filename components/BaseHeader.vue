@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-//import { defineProps, ref, toRefs, PropType } from 'vue'
+import { ref } from 'vue'
 import type { ListLinks } from '@/types/Lists'
 const listMenu = ref<ListLinks>([
     { label: 'главная', href: '/'},
@@ -43,6 +43,9 @@ const listMenu = ref<ListLinks>([
         font-size: 18px;
         letter-spacing: 1px;
         font-weight: bold;
+        @media screen and (max-width: 750px) {
+            padding: 8px;
+        }
         &-web {
             color: blue;
             margin-right: 4px;
@@ -72,9 +75,9 @@ const listMenu = ref<ListLinks>([
             text-transform: uppercase;
             color: red;
         }
-    }
-    @media screen and (max-width: 750px) {
-        flex-direction: column;
+        @media screen and (max-width: 750px) {
+            padding: 8px;
+        }
     }
 }
 </style>
