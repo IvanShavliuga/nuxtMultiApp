@@ -2,9 +2,7 @@
   <article class="postCard">
     <h3 class="postCard__title">{{ post.title}}</h3>
     <div class="postCard__categories">
-        <div v-for="c in post.cat" :key="c">
-            {{ c }}
-        </div>
+        <BaseChips :list="post.cat"/>
     </div>
     <p class="postCard__desc">{{ post.desc }}</p>
     <div class="postCard__likes">
@@ -35,11 +33,6 @@ const props = defineProps({  post: Object as PropType<Post> })
     background-color: white;
     &__desc {
         color: silver;
-    }
-    &__categories {
-        display: flex;
-        justify-content: flex-start;
-        gap: 8px;
     }
     &__likes {
         display: flex;
