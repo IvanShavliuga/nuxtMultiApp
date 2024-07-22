@@ -23,7 +23,7 @@ export default {
     padding: 8px 16px;
     margin-top: 16px;
     &__link {
-        color: purple;
+        color: blue;
         text-decoration: none;
         &:first-child {
             border-right: 1px solid white;
