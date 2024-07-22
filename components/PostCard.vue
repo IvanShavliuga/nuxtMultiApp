@@ -10,6 +10,7 @@
       :repost="post.repost.length"
       :comments="post.comments.length"
       :views="post.views.length"
+      :avatar="post.user.avatar"
     />
     <!-- <pre>
         {{ post }}
