@@ -5,12 +5,12 @@
         <BaseChips :list="post.cat"/>
     </div>
     <p class="postCard__desc">{{ post.desc }}</p>
-    <div class="postCard__likes">
-      <div>like: {{ post.like.length }}</div>
-      <div>repost: {{ post.repost.length }}</div>
-      <div>comments: {{ post.comments.length }}</div>
-      <div>views: {{ post.views.length }}</div>
-    </div>
+    <BaseSocialStat
+      :like="post.like.length"
+      :repost="post.repost.length"
+      :comments="post.comments.length"
+      :views="post.views.length"
+    />
     <!-- <pre>
         {{ post }}
     </pre> -->
@@ -25,6 +25,8 @@ const props = defineProps({  post: Object as PropType<Post> })
 
 <style scoped lang="less">
 .postCard {
+    display: flex;
+    flex-direction: column;
     border: 1px solid black;
     border-radius: 16px;
     width: 320px;
@@ -32,6 +34,7 @@ const props = defineProps({  post: Object as PropType<Post> })
     padding: 16px;
     background-color: white;
     &__desc {
+        flex-grow: 2;
         color: silver;
     }
     &__likes {
