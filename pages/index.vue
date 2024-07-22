@@ -39,11 +39,11 @@ console.log(getNews)
     width: calc(320px + 16px + 8px);
   }
   @media screen and (max-width: 450px) {
-    width: 320px;
+    width: 100%;
   }
 }
 .header {
-  color: purple;
+  color: black;
   margin: 16px 0;
 }
 </style>

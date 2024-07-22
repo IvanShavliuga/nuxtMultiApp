@@ -20,6 +20,7 @@ const props = defineProps({  list: Array as PropType<string[]> })
     gap: 8px;
     list-style: none;
     padding: 8px 0;
+    flex-wrap: wrap;
     &__items {
         color: blue;
         background-color: rgba(blue, 0.2);
@@ -30,6 +31,9 @@ const props = defineProps({  list: Array as PropType<string[]> })
         &:hover {
             background-color: blue;
             color: white;
+        }
+         @media screen and (max-width: 350px) {
+           width: auto;
         }
     }
 }

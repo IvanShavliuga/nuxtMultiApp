@@ -42,8 +42,10 @@ const props = defineProps({  post: Object as PropType<Post> })
         justify-content: flex-start;
         gap: 8px;
     }
-    // @media screen and (max-width: 450px) {
-    //     width: auto;
-    // }
+    @media screen and (max-width: 450px) {
+        width: auto;
+        min-width: 230px;
+        max-width: 90%;
+    }
 }
 </style>
