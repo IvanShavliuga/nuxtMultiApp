@@ -32,6 +32,15 @@ console.log(getNews)
 .wrapper {
   width: calc((320px + 2 * 16px) * 3 + 8px * 3);
   margin: 0 auto;
+  @media screen and (max-width: 1110px) {
+    width: calc((320px + 2 * 16px) * 2 + 8px * 2);
+  }
+  @media screen and (max-width: 750px) {
+    width: calc(320px + 16px + 8px);
+  }
+  // @media screen and (max-width: 450px) {
+  //   width: 100%;
+  // }
 }
 .header {
   color: purple;
