@@ -36,6 +36,7 @@ const props = defineProps({  post: Object as PropType<Post> })
     &__desc {
         flex-grow: 2;
         color: silver;
+        font-weight: 500;
     }
     &__likes {
         display: flex;

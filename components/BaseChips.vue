@@ -27,6 +27,7 @@ const props = defineProps({  list: Array as PropType<string[]> })
         padding: 0 8px;
         border-radius: 16px;
         font-size: 12px;
+        font-weight: 500;
         cursor: default;
         &:hover {
             background-color: blue;

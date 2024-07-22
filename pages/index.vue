@@ -1,6 +1,7 @@
 <template>
   <NuxtLayout name="home">
     <NuxtPage/>
+    <BaseBanner/>
     <main class="wrapper">
       <h1 class="header">Последние новости</h1>
       <PostsList :posts="getNews"/>

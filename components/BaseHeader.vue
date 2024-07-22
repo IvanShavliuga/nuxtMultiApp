@@ -65,6 +65,9 @@ const listMenu = ref<ListLinks>([
     list-style: none;
     margin: 0;
     padding: 0;
+    @media screen and (max-width: 750px) {
+        gap: 4px;
+    }
     &__link {
         display: block;
         color: purple;
@@ -77,6 +80,7 @@ const listMenu = ref<ListLinks>([
         }
         @media screen and (max-width: 750px) {
             padding: 8px;
+            font-size: 16px;
         }
     }
 }
