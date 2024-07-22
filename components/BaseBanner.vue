@@ -4,7 +4,8 @@
     <div class="banner__content">
         <h1 class="banner__header">Я ищу работу</h1>
         <h2 class="banner__subheader">Middle frontend developer</h2>
-        <BaseChips :list="['nuxt 3', 'vue.js 3', 'typescript', 'less', 'tailwind']"/>
+        <a  class="banner__sourcecode" href="https://github.com/IvanShavliuga/nuxtMultiApp" target="_blank">Ссылка на код данного сайта</a>
+        <BaseChips :list="['nuxt 3', 'vue.js 3', 'typescript', 'less', 'server API']"/>
         <div class="banner__contacts">
             <a class="banner__link" href="https://www.linkedin.com/in/ivanshavliugaivanov/" target="_blank">
                 <img class="banner__icon" src="./../assets/icons/linkedin.svg" target="_blank"/>
@@ -70,6 +71,10 @@ export default {
     &__icon {
         width: 32px;
         height: 32px;
+    }
+    &__sourcecode {
+        color: blue;
+        text-decoration: none;
     }
 }
 </style>
