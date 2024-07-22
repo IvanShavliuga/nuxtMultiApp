@@ -38,9 +38,9 @@ console.log(getNews)
   @media screen and (max-width: 750px) {
     width: calc(320px + 16px + 8px);
   }
-  // @media screen and (max-width: 450px) {
-  //   width: 100%;
-  // }
+  @media screen and (max-width: 450px) {
+    width: 320px;
+  }
 }
 .header {
   color: purple;

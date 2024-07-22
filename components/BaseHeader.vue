@@ -34,6 +34,9 @@ const listMenu = ref<ListLinks>([
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        @media screen and (max-width: 750px) {
+            flex-direction: column;
+        }
     }
     &__logo {
         padding: 16px 8px;
@@ -47,6 +50,9 @@ const listMenu = ref<ListLinks>([
         &-news {
             color: black;
         }
+    }
+    @media screen and (max-width: 750px) {
+        flex-direction: column;
     }
 }
 .menu {
@@ -66,6 +72,9 @@ const listMenu = ref<ListLinks>([
             text-transform: uppercase;
             color: red;
         }
+    }
+    @media screen and (max-width: 750px) {
+        flex-direction: column;
     }
 }
 </style>
