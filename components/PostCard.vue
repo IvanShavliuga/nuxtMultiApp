@@ -1,18 +1,16 @@
 <template>
   <article class="postCard">
     <h3 class="postCard__title">{{ post.title}}</h3>
-    <p class="postCard__categories">
-        <div v-for="c in post.cat">
-            {{ c }}
-        </div>
-    </p>
+    <div class="postCard__categories">
+        <BaseChips :list="post.cat"/>
+    </div>
     <p class="postCard__desc">{{ post.desc }}</p>
-    <p class="postCard__likes">
-      <div>like: {{ post.like.length }}</div>
-      <div>repost: {{ post.repost.length }}</div>
-      <div>comments: {{ post.comments.length }}</div>
-      <div>views: {{ post.views.length }}</div>
-    </p>
+    <BaseSocialStat
+      :like="post.like.length"
+      :repost="post.repost.length"
+      :comments="post.comments.length"
+      :views="post.views.length"
+    />
     <!-- <pre>
         {{ post }}
     </pre> -->
@@ -20,13 +18,15 @@
 </template>
 
 <script setup lang="ts">
-// import { defineProps } from 'vue'
+import { defineProps, PropType } from 'vue'
 import type { Post } from '@/types/news'
 const props = defineProps({  post: Object as PropType<Post> })
 </script>
 
 <style scoped lang="less">
 .postCard {
+    display: flex;
+    flex-direction: column;
     border: 1px solid black;
     border-radius: 16px;
     width: 320px;
@@ -34,17 +34,19 @@ const props = defineProps({  post: Object as PropType<Post> })
     padding: 16px;
     background-color: white;
     &__desc {
+        flex-grow: 2;
         color: silver;
-    }
-    &__categories {
-        display: flex;
-        justify-content: flex-start;
-        gap: 8px;
+        font-weight: 500;
     }
     &__likes {
         display: flex;
         justify-content: flex-start;
         gap: 8px;
+    }
+    @media screen and (max-width: 450px) {
+        width: auto;
+        min-width: 230px;
+        max-width: 90%;
     }
 }
 </style>

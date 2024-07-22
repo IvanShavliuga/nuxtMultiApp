@@ -1,7 +1,8 @@
 <template>
   <div>
      <BaseHeader/>
-    <NuxtPage />
+     <NuxtPage />
+     <BaseFooter/>
   </div>
 </template>
 <script setup lang="ts">
@@ -13,7 +14,7 @@
 }
 body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-color: silver;
+  background-color: rgba(silver, 0.3);
 }
 </style>
 

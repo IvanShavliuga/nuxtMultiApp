@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-// import { defineProps } from 'vue'
+import { defineProps, PropType } from 'vue'
 import type { Posts } from '@/types/news'
 const props = defineProps({
     posts: Array as PropType<Posts>
@@ -21,7 +21,5 @@ const props = defineProps({
    gap: 8px;
    flex-wrap: wrap;
    list-style: none;
-   width: calc((320px + 2 * 16px) * 3 + 8px * 3);
-   margin: 0 auto;
 }
 </style>
