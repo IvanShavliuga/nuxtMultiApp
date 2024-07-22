@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-// import { defineProps } from 'vue'
+import { defineProps, PropType } from 'vue'
 import type { Posts } from '@/types/news'
 const props = defineProps({
     posts: Array as PropType<Posts>

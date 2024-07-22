@@ -1,18 +1,18 @@
 <template>
   <article class="postCard">
     <h3 class="postCard__title">{{ post.title}}</h3>
-    <p class="postCard__categories">
-        <div v-for="c in post.cat">
+    <div class="postCard__categories">
+        <div v-for="c in post.cat" :key="c">
             {{ c }}
         </div>
-    </p>
+    </div>
     <p class="postCard__desc">{{ post.desc }}</p>
-    <p class="postCard__likes">
+    <div class="postCard__likes">
       <div>like: {{ post.like.length }}</div>
       <div>repost: {{ post.repost.length }}</div>
       <div>comments: {{ post.comments.length }}</div>
       <div>views: {{ post.views.length }}</div>
-    </p>
+    </div>
     <!-- <pre>
         {{ post }}
     </pre> -->
@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-// import { defineProps } from 'vue'
+import { defineProps, PropType } from 'vue'
 import type { Post } from '@/types/news'
 const props = defineProps({  post: Object as PropType<Post> })
 </script>
