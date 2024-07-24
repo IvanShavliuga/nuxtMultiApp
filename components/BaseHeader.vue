@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { ListLinks } from '@/types/Lists'
+import type { ListLinks } from './../types/Lists'
 const listMenu = ref<ListLinks>([
     { label: 'главная', href: '/'},
     { label: 'группы', href: '/groups'},

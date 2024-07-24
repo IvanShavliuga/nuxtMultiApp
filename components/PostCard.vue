@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { defineProps, PropType } from 'vue'
-import type { Post } from '@/types/news'
+import type { Post } from './../types/news'
 const props = defineProps({  post: Object as PropType<Post> })
 </script>
 
