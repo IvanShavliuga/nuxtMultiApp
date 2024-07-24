@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useNewsStore } from '@/stores/news'
+import { useNewsStore } from './../stores/news'
 const { getNews, addPosts } = useNewsStore()
 
 const load = ref(false)
