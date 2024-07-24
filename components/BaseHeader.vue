@@ -29,7 +29,7 @@ const listMenu = ref<ListLinks>([
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: rgba(purple, 0.2);
+    background-color: plum;
     &__nav {
         display: flex;
         justify-content: flex-start;
