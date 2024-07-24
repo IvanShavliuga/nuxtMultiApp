@@ -2,6 +2,7 @@ export type SocialStat = {
     avatar: string; 
     id:number;
     name: string; 
+    login: string;
 }
 export type Comment = {
     id: number;
@@ -31,6 +32,7 @@ export type Post = {
         isAdmin: boolean
     };
     user?: {
+        login: string;
         avatar: string;
         name: string;
         spec: string; 

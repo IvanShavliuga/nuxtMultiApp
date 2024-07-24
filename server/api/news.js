@@ -9,6 +9,7 @@ export default eventHandler(async (event) => {
         const usr = users.filter((u) => u.id === p.userId)
         const fm = {...p, user: {}, group: {}}
         const user = {
+            login: usr[0].login,
             avatar: usr[0].avatar,
             name: usr[0].name,
             spec: usr[0].spec, 
@@ -27,9 +28,9 @@ export default eventHandler(async (event) => {
             }
         }
         fm.comments = comments.filter((c) => c.postId === p.id).map((c) => ({ ...c, user}))
-        fm.like = users.filter((u) => p.like.includes(u.id)).map((u) => ({ avatar: u.avatar, id: u.id, name: u.name }))
-        fm.repost = users.filter((u) => p.repost.includes(u.id)).map((u) => ({ avatar: u.avatar, id: u.id, name: u.name }))
-        fm.views = users.filter((u) => p.views.includes(u.id)).map((u) => ({ avatar: u.avatar, id: u.id, name: u.name }))
+        fm.like = users.filter((u) => p.like.includes(u.id)).map((u) => ({ avatar: u.avatar, id: u.id, name: u.name, login: u.login }))
+        fm.repost = users.filter((u) => p.repost.includes(u.id)).map((u) => ({ avatar: u.avatar, id: u.id, name: u.name, login: u.login }))
+        fm.views = users.filter((u) => p.views.includes(u.id)).map((u) => ({ avatar: u.avatar, id: u.id, name: u.name, login: u.login }))
         return fm
     })
     return {
