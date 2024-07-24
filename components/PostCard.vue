@@ -4,12 +4,14 @@
     <div class="postCard__categories">
         <BaseChips :list="post.cat"/>
     </div>
+    <p class="postCard__author">{{ post.group?.name ?? post.user.name }}</p>
     <p class="postCard__desc">{{ post.desc }}</p>
     <BaseSocialStat
       :like="post.like.length"
       :repost="post.repost.length"
       :comments="post.comments.length"
       :views="post.views.length"
+      :avatar="post.user.avatar"
     />
     <!-- <pre>
         {{ post }}
@@ -19,7 +21,7 @@
 
 <script setup lang="ts">
 import { defineProps, PropType } from 'vue'
-import type { Post } from '@/types/news'
+import type { Post } from './../types/news'
 const props = defineProps({  post: Object as PropType<Post> })
 </script>
 
@@ -42,6 +44,11 @@ const props = defineProps({  post: Object as PropType<Post> })
         display: flex;
         justify-content: flex-start;
         gap: 8px;
+    }
+    &__author {
+        color: black;
+        font-weight: 700;
+        margin-bottom: 8px;
     }
     @media screen and (max-width: 450px) {
         width: auto;

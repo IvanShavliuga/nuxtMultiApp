@@ -4,6 +4,7 @@
       <li class="stat__item"><img src="./../assets/icons/repost.svg" class="stat__icon"/>  {{ repost }}</li>
       <li class="stat__item"><img src="./../assets/icons/comments.svg" class="stat__icon"/> {{ comments }}</li>
       <li class="stat__item"><img src="./../assets/icons/views.svg" class="stat__icon"/> {{ views }}</li>
+      <li class="stat__item"><img :src="'.'+avatar" class="stat__avatar"/></li>
     </ul>
 </template>
 
@@ -14,13 +15,14 @@ const props = defineProps({
     repost: Number,
     comments: Number,
     views: Number,
+    avatar: String,
 })
 </script>
 
 <style scoped lang="less">
 .stat {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 8px;
     list-style: none;
     width: auto;
@@ -40,6 +42,12 @@ const props = defineProps({
     &__icon {
         width: 28px;
         height: 28px;
+    }
+    &__avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        margin-left: auto;
     }
 }
 </style>
