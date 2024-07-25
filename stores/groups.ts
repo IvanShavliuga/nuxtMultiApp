@@ -14,6 +14,7 @@ class Groups {
     groups:Group[] = []
     addGroups(groups:Group[] = []) {
         if(groups.length) {
+          console.log(groups)
             this.groups.push(...groups)
         }
 
@@ -22,16 +23,17 @@ class Groups {
 
 export const useGroupsStore = defineStore('groups', {
   state: () => ({
-    groups:  new Groups()
+    groupsData:  new Groups()
   }),
   getters: {
-    getGroups: (state) => state.groups ?? [],
+    getGroups: (state) => state.groupsData?.groups ?? [],
   },
   actions: {
     async addPosts() {
     const r = await useFetch('/api/groups')
     if (r.status.value === 'success') {
-        this.groups.addGroups(r.data.value.groups)
+      console.log(r.data.value)
+        this.groupsData.addGroups(r.data.value.groups)
     }
         return this.groups
     },

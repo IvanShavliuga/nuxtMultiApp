@@ -1,7 +1,7 @@
 <template>
     <main class="wrapper">
         <h1 class="header">Группы</h1>
-        <pre>{{ getGroups }}</pre>
+        <GroupsList :groups="getGroups"/>
     </main>
 </template>
 
