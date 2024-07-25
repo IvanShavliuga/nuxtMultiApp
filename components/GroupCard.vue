@@ -1,11 +1,11 @@
 <template>
   <article class="groupCard">
-     <h2>{{ group.name }}</h2>
-     <p>{{ group.desc }}</p>
-     <p>{{ group.category }}</p>
-     <p>Постов: {{ group.idNews.length }}</p>
-     <p>Подписчиков: {{ group.followers.length }}</p>
-     <p>Админ: {{ group.admin.login }}</p>
+    <h3>{{ group.name }}</h3>
+    <p class="groupCard__cat">{{ group.category }}</p>
+    <p class="groupCard__desc">{{ group.desc }}</p>
+    <p>Постов: {{ group.idNews.length }}</p>
+    <p>Подписчиков: {{ group.followers.length }}</p>
+    <p>Админ: {{ group.admin.login }}</p>
   </article>
 </template>
 
@@ -25,5 +25,22 @@ const props = defineProps({  group: Object as PropType<Group> })
     min-height: 250px;
     padding: 16px;
     background-color: white;
+    &__desc {
+        flex-grow: 2;
+        color: silver;
+        font-weight: 500;
+        &::first-letter {
+            color:black;
+            font-weight: 700;
+            font-size: 1.3em;
+            padding-right: 2px;
+            // float: left;
+            // line-height: -2em;
+        }
+    }
+    &__cat {
+        color: rgba(blue, 0.4);
+        font-weight: 700;
+    }
 }
 </style>
