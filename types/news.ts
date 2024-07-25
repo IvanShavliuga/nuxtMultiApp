@@ -1,13 +1,8 @@
-export type SocialStat = {
-    avatar: string; 
-    id:number;
-    name: string; 
-    login: string;
-}
+import { UserShort } from './socialStat'
 export type Comment = {
     id: number;
     userId: number;
-    user: SocialStat;
+    user: UserShort;
     postId: number;
     text: number;
 }
@@ -19,10 +14,10 @@ export type Post = {
     time:string;
     title:string;
     desc:string;
-    like:SocialStat[];
-    repost: SocialStat[];
+    like:UserShort[];
+    repost: UserShort[];
     comments: Comment[];
-    views: SocialStat[];
+    views: UserShort[];
     cat: string[];
     type: "post";
     likeclick: boolean;
