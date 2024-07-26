@@ -3,16 +3,19 @@
     <h3>{{ group.name }}</h3>
     <p class="groupCard__cat">{{ group.category }}</p>
     <p class="groupCard__desc">{{ group.desc }}</p>
-    <p>Постов: {{ group.idNews.length }}</p>
     <p>Подписчиков: {{ group.followers.length }}</p>
+    <AvaList :list="avatars"/>
+    <p>Постов: {{ group.idNews.length }}</p>
     <p>Админ: {{ group.admin.login }}</p>
   </article>
 </template>
 
 <script setup lang="ts">
-import { defineProps, PropType } from 'vue'
+import { defineProps, PropType, toRefs } from 'vue'
 import type { Group } from './../types/groups'
 const props = defineProps({  group: Object as PropType<Group> })
+const { group } = toRefs(props)
+const avatars = group.value.followers.map((f) => f.avatar)
 </script>
 
 <style scoped lang="less">
