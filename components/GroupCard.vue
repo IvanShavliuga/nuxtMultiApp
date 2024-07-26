@@ -3,12 +3,16 @@
     <h3>{{ group.name }}</h3>
     <p class="groupCard__cat">{{ group.category }}</p>
     <p class="groupCard__desc">{{ group.desc }}</p>
-    <p class="groupCard__text">Постов:<span class="groupCard__value"> {{ group.idNews.length }}</span></p>
-    <div class="groupCard__followers">
-      <p class="groupCard__text">Подписчиков:<span class="groupCard__value"> {{ group.followers.length }}</span></p>
-      <AvaList :list="avatars"/>
+    <p class="groupCard__text">Постов:<span class="groupCard__value"> {{ group.idNews.length || 'нет' }}</span></p>
+    <div class="groupCard__usersInfo">
+      <div class="groupCard__followers">
+        <p class="groupCard__text">Подписчиков:<span class="groupCard__value"> {{ group.followers.length }}</span></p>
+        <AvaList :list="avatars"/>
+      </div>
+      <div class="groupCard__admin">
+        <UserBox title="Админ" :user="group.admin"/>
+      </div>
     </div>
-    <p class="groupCard__text">Админ:<span class="groupCard__value"> {{ group.admin.login }}</span></p>
   </article>
 </template>
 
@@ -43,9 +47,9 @@ const avatars = group.value.followers.map((f) => f.avatar)
             // line-height: -2em;
         }
     }
-    &__followers {
-      margin: 8px 0;
-    }
+    // &__followers {
+     
+    // }
     &__cat {
         color: rgba(blue, 0.4);
         font-weight: 700;
@@ -56,6 +60,12 @@ const avatars = group.value.followers.map((f) => f.avatar)
     &__value {
         color: black;
         font-weight: 700;
+    }
+    &__usersInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
     }
 }
 </style>
