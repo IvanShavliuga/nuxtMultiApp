@@ -52,8 +52,8 @@ const isMore = computed(() => list.value.length >= 5)
         align-items: center;
         background-color: silver;
         border-radius: 50%;
-        width: 32px;
-        height: 32px;
+        width: 33px;
+        height: 33px;
         margin: 0;
         padding: 0;
         margin-left: -16px;
