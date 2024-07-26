@@ -1,6 +1,7 @@
 <template>
   <article class="postCard">
     <h3 class="postCard__title">{{ post.title}}</h3>
+    <p class="postCard__date">{{ post.date }} {{ post.time }}</p>
     <div class="postCard__categories">
         <BaseChips :list="post.cat"/>
     </div>
@@ -32,13 +33,25 @@ const props = defineProps({  post: Object as PropType<Post> })
     border: 1px solid black;
     border-radius: 16px;
     width: 320px;
-    min-height: 320px;
+    min-height: 350px;
     padding: 16px;
     background-color: white;
+     &__date {
+        color: rgba(blue, 0.4);
+        font-weight: 700;
+    }
     &__desc {
         flex-grow: 2;
         color: silver;
         font-weight: 500;
+        &::first-letter {
+            color:black;
+            font-weight: 700;
+            font-size: 1.3em;
+            padding-right: 2px;
+            // float: left;
+            // line-height: -2em;
+        }
     }
     &__likes {
         display: flex;

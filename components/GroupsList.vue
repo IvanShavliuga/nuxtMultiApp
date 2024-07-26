@@ -1,21 +1,21 @@
 <template>
-  <ul class="postsList">
-    <li v-for="p of posts" :key="p.id" class="item">
-        <PostCard :post="p"/>
+  <ul class="groupsList">
+    <li v-for="g of groups" :key="g.id" class="item">
+        <GroupCard :group="g"/>
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
 import { defineProps, PropType } from 'vue'
-import type { Posts } from './../types/news'
+import type { Group } from './../types/groups'
 const props = defineProps({
-    posts: Array as PropType<Posts>
+    groups: Array as PropType<Group[]>
 })
 </script>
 
 <style scoped lang="less">
-.postsList {
+.groupsList {
    display: flex;
    justify-content: flex-start;
    gap: 8px;

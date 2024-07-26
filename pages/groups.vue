@@ -1,18 +1,14 @@
 <template>
-  <NuxtLayout name="home">
-    <NuxtPage/>
-    <BaseBanner/>
     <main class="wrapper">
-      <h1 class="header">Последние новости</h1>
-      <PostsList :posts="getNews"/>
+        <h1 class="header">Группы</h1>
+        <GroupsList :groups="getGroups"/>
     </main>
-  </NuxtLayout>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useNewsStore } from './../stores/news'
-const { getNews, addPosts } = useNewsStore()
+import { useGroupsStore } from './../stores/groups'
+const { getGroups, addPosts } = useGroupsStore()
 
 const load = ref(false)
 // init()
@@ -20,7 +16,7 @@ addPosts().then((r) => {
     load.value = true
 })
 
-console.log(getNews)
+console.log(getGroups)
 </script>
 
 <style scoped lang="less">

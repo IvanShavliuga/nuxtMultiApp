@@ -6,6 +6,11 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useHead } from "nuxt/app";
+
+useHead({
+  title: 'Web News Porfolio project'
+})
 </script>
 <style lang="less">
 * {
