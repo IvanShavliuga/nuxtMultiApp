@@ -34,6 +34,9 @@ const avatars = group.value.followers.map((f) => f.avatar)
     min-height: 250px;
     padding: 16px;
     background-color: white;
+    @media screen and (max-width: 400px) {
+      width: 100%;
+    }
     &__desc {
         flex-grow: 2;
         color: silver;
@@ -66,6 +69,10 @@ const avatars = group.value.followers.map((f) => f.avatar)
       justify-content: space-between;
       align-items: center;
       margin-top: 8px;
+      @media screen and (max-width: 400px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 }
 </style>
