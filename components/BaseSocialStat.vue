@@ -20,6 +20,7 @@ const props = defineProps({
 </script>
 
 <style scoped lang="less">
+@import './../assets/styles/global.less';
 .stat {
     display: flex;
     justify-content: space-between;
@@ -27,7 +28,7 @@ const props = defineProps({
     list-style: none;
     width: auto;
     padding: 8px;
-    background-color: rgba(silver,0.15);
+    background-color: @blockPanelColor;
     border-radius: 16px;
     &__item {
         display: flex;
@@ -40,12 +41,12 @@ const props = defineProps({
         }
     }
     &__icon {
-        width: 28px;
-        height: 28px;
+        width: @iconSize;
+        height: @iconSize;
     }
     &__avatar {
-        width: 28px;
-        height: 28px;
+        width: @iconSize;
+        height: @iconSize;
         border-radius: 50%;
         margin-left: auto;
     }
