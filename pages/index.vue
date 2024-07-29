@@ -19,8 +19,6 @@ const load = ref(false)
 addPosts().then((r) => {
     load.value = true
 })
-
-console.log(getNews)
 </script>
 
 <style scoped lang="less">

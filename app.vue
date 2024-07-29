@@ -11,6 +11,7 @@ import { useHead } from "nuxt/app";
 useHead({
   title: 'Web News Porfolio project'
 })
+console.log('%cTest technology',`margin: 8px; padding: 8px; border: 2px solid yellow; background-color: plum; color: white; font-size: 16px; font-weight: 700;`)
 </script>
 <style lang="less">
 * {
