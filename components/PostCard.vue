@@ -27,31 +27,13 @@ const props = defineProps({  post: Object as PropType<Post> })
 </script>
 
 <style scoped lang="less">
-.postCard {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    border-radius: 16px;
-    width: 320px;
+@import './../assets/styles/global.less';
+.postCard { 
+    .card(); 
     min-height: 350px;
-    padding: 16px;
-    background-color: white;
      &__date {
-        color: rgba(blue, 0.4);
+        color: @blockLinkColor;
         font-weight: 700;
-    }
-    &__desc {
-        flex-grow: 2;
-        color: silver;
-        font-weight: 500;
-        &::first-letter {
-            color:black;
-            font-weight: 700;
-            font-size: 1.3em;
-            padding-right: 2px;
-            // float: left;
-            // line-height: -2em;
-        }
     }
     &__likes {
         display: flex;
@@ -59,7 +41,7 @@ const props = defineProps({  post: Object as PropType<Post> })
         gap: 8px;
     }
     &__author {
-        color: black;
+        color: @blockHeaderColor;
         font-weight: 700;
         margin-bottom: 8px;
     }

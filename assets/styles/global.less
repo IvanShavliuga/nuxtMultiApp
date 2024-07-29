@@ -5,7 +5,14 @@
 @headerMenuColor: purple;
 @headerMenuFirstColor: red;
 @widthCard: 320px;
-@boxColor: white;
+@blockColor: white;
+@blockPadding: 16px;
+@blockRadius: 16px;
+@blockBorder: silver;
+@blockHeaderColor: black;
+@blockTextColor: silver;
+@blockLinkColor: rgba(blue, 0.4);
+@blockValueColor: black;
 * {
     padding: 0;
     margin: 0;
@@ -26,4 +33,44 @@
 .headerPage {
     color: black;
     margin: 16px 0;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid @blockBorder;
+    border-radius: 16px;
+    width: @widthCard;
+    min-height: 250px;
+    padding: @blockPadding;
+    background-color: @blockColor;
+    // @media screen and (max-width: 400px) {
+    //   width: 100%;
+    // }
+    &__desc {
+        flex-grow: 2;
+        color: @blockTextColor;
+        font-weight: 500;
+        &::first-letter {
+            color:@blockHeaderColor;
+            font-weight: 700;
+            font-size: 1.3em;
+            padding-right: 2px;
+            // float: left;
+            // line-height: -2em;
+        }
+    }
+    // &__followers {
+     
+    // }
+    &__cat {
+        color: @blockLinkColor;
+        font-weight: 700;
+    }
+    &__text {
+        color: @blockTextColor;
+    }
+    &__value {
+        color: @blockValueColor;
+        font-weight: 700;
+    }
 }
