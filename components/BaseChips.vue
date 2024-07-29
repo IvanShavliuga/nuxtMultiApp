@@ -14,6 +14,7 @@ const props = defineProps({  list: Array as PropType<string[]> })
 </script>
 
 <style scoped lang="less">
+@import './../assets/styles/global.less';
 .chips {
     display: flex;
     justify-content: flex-start;
@@ -22,16 +23,16 @@ const props = defineProps({  list: Array as PropType<string[]> })
     padding: 8px 0;
     flex-wrap: wrap;
     &__items {
-        color: blue;
-        background-color: rgba(blue, 0.2);
+        color: @chipsTextColor;
+        background-color: @chipsColor;
         padding: 0 8px;
         border-radius: 16px;
         font-size: 12px;
         font-weight: 500;
         cursor: default;
         &:hover {
-            background-color: blue;
-            color: white;
+            background-color: @chipsHoverColor;
+            color: @chipsHoverTextColor;
         }
          @media screen and (max-width: 350px) {
            width: auto;
