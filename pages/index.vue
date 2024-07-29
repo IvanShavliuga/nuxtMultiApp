@@ -3,7 +3,7 @@
     <NuxtPage/>
     <BaseBanner/>
     <main class="wrapper">
-      <h1 class="header">Последние новости</h1>
+      <h1 class="headerPage">Последние новости</h1>
       <PostsList :posts="getNews"/>
     </main>
   </NuxtLayout>

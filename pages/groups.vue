@@ -1,6 +1,6 @@
 <template>
     <main class="wrapper">
-        <h1 class="header">Группы</h1>
+        <h1 class="headerPage">Группы</h1>
         <GroupsList :groups="getGroups"/>
     </main>
 </template>
