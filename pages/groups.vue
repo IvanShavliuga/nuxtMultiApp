@@ -15,8 +15,6 @@ const load = ref(false)
 addPosts().then((r) => {
     load.value = true
 })
-
-console.log(getGroups)
 </script>
 
 <style scoped lang="less">

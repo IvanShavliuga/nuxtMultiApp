@@ -9,7 +9,6 @@ export default { store: setActivePinia(pinia) }
 class News {
     constructor() {
         this.posts = []
-        console.log('constructor')
     }
     posts:Post[] = []
     addPosts(posts:Post[] = []) {
