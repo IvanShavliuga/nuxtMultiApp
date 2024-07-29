@@ -1,5 +1,5 @@
 import { defineStore, createPinia, setActivePinia } from 'pinia'
-import {  Post } from '@/types/news'
+import {  Post } from './../types/news'
 import { useFetch } from 'nuxt/app'
 
 const pinia = createPinia()
