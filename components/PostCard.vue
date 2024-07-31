@@ -13,6 +13,9 @@
       :comments="post.comments.length"
       :views="post.views.length"
       :avatar="post.user.avatar"
+      :name="post.user.name" 
+      :spec="post.user.spec" 
+      :city="post.user.city"
     />
     <!-- <pre>
         {{ post }}
