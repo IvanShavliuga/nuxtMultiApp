@@ -5,7 +5,14 @@
     </div>
     <!-- <pre>{{ statsList }}</pre> -->
     <ul class="stat">
-      <li v-for="stat in statsList" :key="stat.field" class="stat__item">
+      <li
+        v-for="stat in statsList"
+        :key="stat.field"
+        class="stat__item"
+        @mouseenter="handlerShowHint(stat.field)"
+        @mouseleave="handlerHideHint"
+      >
+        <BaseShortHint v-if="stat.field === statFieldHint" :hint="stat.hint" />
         <img :src="stat.icon" class="stat__icon" />{{ stat.value }}
       </li>
       <li
@@ -35,29 +42,35 @@ const props = defineProps({
 });
 const { like, repost, comments, views } = toRefs(props);
 const showTooltip = ref(false);
+const statFieldHint = ref<SocialStatField | "">("");
 function handlerShowTooltip() {
   showTooltip.value = true;
 }
 function handlerHideTooltip() {
   showTooltip.value = false;
 }
+function handlerShowHint(field: SocialStatField) {
+  statFieldHint.value = field;
+}
+function handlerHideHint() {
+  statFieldHint.value = "";
+}
 const statsList: ComputedRef<SocialStatList> = computed(() => {
   const statData = { like, repost, comments, views };
-  const statFields:SocialStatField[] = ["like", "repost", "comments", "views"];
+  const statFields: SocialStatField[] = ["like", "repost", "comments", "views"];
   const statHints = {
     like: "Лайки",
-    repost: "Репостов",
-    comments: "Комментариев",
-    views: "Просмотров",
+    repost: "Репосты",
+    comments: "Комментарии",
+    views: "Просмотры",
   };
-  return statFields.map((field:SocialStatField) => {
-    const value:number = statData[field].value;
+  return statFields.map((field: SocialStatField) => {
+    const value: number = statData[field].value;
     return {
       field,
       value,
-      hint: statHints[field],
-     // icon: `./../assets/icons/${field}.svg`,
-     icon: `/${field}.svg`
+      hint: `${statHints[field]}: ${value}`,
+      icon: `/${field}.svg`,
     };
   });
 });
@@ -83,6 +96,7 @@ const statsList: ComputedRef<SocialStatList> = computed(() => {
   background-color: @blockPanelColor;
   border-radius: 16px;
   &__item {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 8px;
