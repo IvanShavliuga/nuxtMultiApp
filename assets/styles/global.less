@@ -1,0 +1,82 @@
+@bodyColor:  rgba(silver, 0.3);
+@headerColor: plum;
+@logoWebColor: blue;
+@logoNewsColor: black;
+@headerMenuColor: purple;
+@headerMenuFirstColor: red;
+@widthCard: 320px;
+@blockColor: white;
+@blockPadding: 16px;
+@blockRadius: 16px;
+@blockBorder: silver;
+@blockHeaderColor: black;
+@blockTextColor: silver;
+@blockPanelColor:  rgba(silver,0.15);
+@blockLinkColor: rgba(blue, 0.4);
+@blockValueColor: black;
+@chipsColor: rgba(blue, 0.1);
+@chipsTextColor: blue;
+@chipsHoverColor: blue;
+@chipsHoverTextColor: white;
+@iconSize: 28px;
+* {
+    padding: 0;
+    margin: 0;
+  }
+.pageWrapper {
+    width: calc((@widthCard + 2 * 16px) * 3 + 8px * 3);
+    margin: 0 auto;
+    @media screen and (max-width: 1110px) {
+      width: calc((@widthCard + 2 * 16px) * 2 + 8px * 2);
+    }
+    @media screen and (max-width: 750px) {
+      width: calc(@widthCard + 16px + 8px);
+    }
+    @media screen and (max-width: 450px) {
+      width: 100%;
+    }
+}
+.headerPage {
+    color: black;
+    margin: 16px 0;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid @blockBorder;
+    border-radius: 16px;
+    width: @widthCard;
+    min-height: 250px;
+    padding: @blockPadding;
+    background-color: @blockColor;
+    // @media screen and (max-width: 400px) {
+    //   width: 100%;
+    // }
+    &__desc {
+        flex-grow: 2;
+        color: @blockTextColor;
+        font-weight: 500;
+        &::first-letter {
+            color:@blockHeaderColor;
+            font-weight: 700;
+            font-size: 1.3em;
+            padding-right: 2px;
+            // float: left;
+            // line-height: -2em;
+        }
+    }
+    // &__followers {
+     
+    // }
+    &__cat {
+        color: @blockLinkColor;
+        font-weight: 700;
+    }
+    &__text {
+        color: @blockTextColor;
+    }
+    &__value {
+        color: @blockValueColor;
+        font-weight: 700;
+    }
+}

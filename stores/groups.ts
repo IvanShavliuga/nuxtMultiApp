@@ -9,12 +9,10 @@ export default { store: setActivePinia(pinia) }
 class Groups {
     constructor() {
         this.groups = []
-        console.log('constructor')
     }
     groups:Group[] = []
     addGroups(groups:Group[] = []) {
         if(groups.length) {
-          console.log(groups)
             this.groups.push(...groups)
         }
 
@@ -32,7 +30,6 @@ export const useGroupsStore = defineStore('groups', {
     async addPosts() {
     const r = await useFetch('/api/groups')
     if (r.status.value === 'success') {
-      console.log(r.data.value)
         this.groupsData.addGroups(r.data.value.groups)
     }
         return this.groups

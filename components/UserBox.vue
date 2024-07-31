@@ -35,6 +35,7 @@ function handlerHideTooltip() {
         border-radius: 16px;
         min-width: 120px;
         cursor: default;
+        padding: 2px;
     }
     &__img {
         width: 32px;

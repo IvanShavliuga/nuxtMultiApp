@@ -25,47 +25,18 @@ const avatars = group.value.followers.map((f) => f.avatar)
 </script>
 
 <style scoped lang="less">
+@import './../assets/styles/global.less';
 .groupCard {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    border-radius: 16px;
-    width: 320px;
-    min-height: 250px;
-    padding: 16px;
-    background-color: white;
-    &__desc {
-        flex-grow: 2;
-        color: silver;
-        font-weight: 500;
-        &::first-letter {
-            color:black;
-            font-weight: 700;
-            font-size: 1.3em;
-            padding-right: 2px;
-            // float: left;
-            // line-height: -2em;
-        }
-    }
-    // &__followers {
-     
-    // }
-    &__cat {
-        color: rgba(blue, 0.4);
-        font-weight: 700;
-    }
-    &__text {
-        color: silver;
-    }
-    &__value {
-        color: black;
-        font-weight: 700;
-    }
+    .card();
     &__usersInfo {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-top: 8px;
+      // @media screen and (max-width: 400px) {
+      //   flex-direction: column;
+      //   align-items: flex-start;
+      // }
     }
 }
 </style>

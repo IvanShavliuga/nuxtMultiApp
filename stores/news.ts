@@ -1,5 +1,5 @@
 import { defineStore, createPinia, setActivePinia } from 'pinia'
-import {  Post } from '@/types/news'
+import {  Post } from './../types/news'
 import { useFetch } from 'nuxt/app'
 
 const pinia = createPinia()
@@ -9,7 +9,6 @@ export default { store: setActivePinia(pinia) }
 class News {
     constructor() {
         this.posts = []
-        console.log('constructor')
     }
     posts:Post[] = []
     addPosts(posts:Post[] = []) {

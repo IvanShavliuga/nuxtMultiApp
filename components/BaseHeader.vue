@@ -25,11 +25,12 @@ const listMenu = ref<ListLinks>([
 </script>
 
 <style scoped lang="less">
+@import './../assets/styles/global.less';
 .header {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: plum;
+    background-color: @headerColor;
     &__nav {
         display: flex;
         justify-content: flex-start;
@@ -47,11 +48,11 @@ const listMenu = ref<ListLinks>([
             padding: 8px;
         }
         &-web {
-            color: blue;
+            color: @logoWebColor;
             margin-right: 4px;
         }
         &-news {
-            color: black;
+            color: @logoNewsColor;
         }
     }
     @media screen and (max-width: 750px) {
@@ -70,13 +71,13 @@ const listMenu = ref<ListLinks>([
     }
     &__link {
         display: block;
-        color: purple;
+        color: @headerMenuColor;
         padding: 16px 8px;
         text-decoration: none;
         font-size: 18px;
         &::first-letter {
             text-transform: uppercase;
-            color: red;
+            color: @headerMenuFirstColor;
         }
         @media screen and (max-width: 750px) {
             padding: 8px;
