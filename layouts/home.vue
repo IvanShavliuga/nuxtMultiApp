@@ -1,15 +1,11 @@
 <template>
   <section class="home">
-    <slot/>
+    <slot />
   </section>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
-</style>
+<style></style>
