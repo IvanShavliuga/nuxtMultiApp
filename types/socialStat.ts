@@ -12,3 +12,11 @@ export type userBox = {
   skills: string[];
   city: string;
 };
+export type SocialStatField = "like" | "repost" | "comments" | "views";
+
+export type SocialStatList = {
+  field: SocialStatField;
+  hint: string;
+  value: number;
+  icon: string;
+}[];

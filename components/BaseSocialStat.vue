@@ -3,20 +3,10 @@
     <div v-if="showTooltip" class="wrapperStat__tooltip">
       <UserTooltip :name="name" :spec="spec" :city="city" />
     </div>
+    <!-- <pre>{{ statsList }}</pre> -->
     <ul class="stat">
-      <li class="stat__item">
-        <img src="./../assets/icons/like.svg" class="stat__icon" />{{ like }}
-      </li>
-      <li class="stat__item">
-        <img src="./../assets/icons/repost.svg" class="stat__icon" />
-        {{ repost }}
-      </li>
-      <li class="stat__item">
-        <img src="./../assets/icons/comments.svg" class="stat__icon" />
-        {{ comments }}
-      </li>
-      <li class="stat__item">
-        <img src="./../assets/icons/views.svg" class="stat__icon" /> {{ views }}
+      <li v-for="stat in statsList" :key="stat.field" class="stat__item">
+        <img :src="stat.icon" class="stat__icon" />{{ stat.value }}
       </li>
       <li
         class="stat__item"
@@ -30,8 +20,10 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref } from "vue";
-defineProps({
+import type { ComputedRef } from "vue";
+import type { SocialStatList, SocialStatField } from "./../types/socialStat";
+import { defineProps, ref, computed, toRefs } from "vue";
+const props = defineProps({
   like: Number,
   repost: Number,
   comments: Number,
@@ -41,6 +33,7 @@ defineProps({
   spec: String,
   city: String,
 });
+const { like, repost, comments, views } = toRefs(props);
 const showTooltip = ref(false);
 function handlerShowTooltip() {
   showTooltip.value = true;
@@ -48,6 +41,26 @@ function handlerShowTooltip() {
 function handlerHideTooltip() {
   showTooltip.value = false;
 }
+const statsList: ComputedRef<SocialStatList> = computed(() => {
+  const statData = { like, repost, comments, views };
+  const statFields:SocialStatField[] = ["like", "repost", "comments", "views"];
+  const statHints = {
+    like: "Лайки",
+    repost: "Репостов",
+    comments: "Комментариев",
+    views: "Просмотров",
+  };
+  return statFields.map((field:SocialStatField) => {
+    const value:number = statData[field].value;
+    return {
+      field,
+      value,
+      hint: statHints[field],
+     // icon: `./../assets/icons/${field}.svg`,
+     icon: `/${field}.svg`
+    };
+  });
+});
 </script>
 
 <style scoped lang="less">
