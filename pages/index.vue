@@ -1,28 +1,28 @@
 <template>
   <NuxtLayout name="home">
-    <NuxtPage/>
-    <BaseBanner/>
+    <NuxtPage />
+    <BaseBanner />
     <main class="wrapper">
       <h1 class="headerPage">Последние новости</h1>
-      <PostsList :posts="getNews"/>
+      <PostsList :posts="getNews" />
     </main>
   </NuxtLayout>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useNewsStore } from './../stores/news'
-const { getNews, addPosts } = useNewsStore()
+import { ref } from "vue";
+import { useNewsStore } from "./../stores/news";
+const { getNews, addPosts } = useNewsStore();
 
-const load = ref(false)
+const load = ref(false);
 // init()
-addPosts().then((r) => {
-    load.value = true
-})
+addPosts().then(() => {
+  load.value = true;
+});
 </script>
 
 <style scoped lang="less">
-@import './../assets/styles/global.less';
+@import "./../assets/styles/global.less";
 .wrapper {
   .pageWrapper();
 }

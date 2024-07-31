@@ -1,31 +1,30 @@
 <template>
-  <div class="userTooltip">
-    <h3 class="userTooltip__name">{{ name }}</h3>
-    <p class="userTooltip__spec">{{ spec }}</p>
-    <p class="userTooltip__city">{{ city }}</p>
+  <div class="shortHint" :style="'width:' + hint.length + 'ch'">
+    {{ hint }}
   </div>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from "vue";
-defineProps({ name: String, spec: String, city: String });
+defineProps({ hint: String, value: { type: Number, default: 0 } });
 </script>
 
 <style scoped lang="less">
 @import "./../assets/styles/global.less";
-.userTooltip {
+.shortHint {
   position: absolute;
-  top: -60px;
-  left: -90px;
+  top: -42px;
+  left: -10px;
+  z-index: 10;
+  font-size: 14px;
+  padding: 4px;
+  border-radius: 6px;
   background-color: @blockColor;
-  min-width: 180px;
-  padding: 8px;
-  border-radius: 10px;
   border: 1px solid @blockBorder;
   &::after {
     position: absolute;
     bottom: -9px;
-    right: 22px;
+    left: 22px;
     display: block;
     content: " ";
     background-color: @blockColor;
@@ -34,17 +33,6 @@ defineProps({ name: String, spec: String, city: String });
     padding: 8px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-  }
-  &__name {
-    font-size: 14px;
-  }
-  &__spec {
-    color: @chipsTextColor;
-    font-size: 12px;
-  }
-  &__city {
-    color: @blockTextColor;
-    font-size: 12px;
   }
 }
 </style>
