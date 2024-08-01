@@ -3,9 +3,7 @@
     <NuxtPage />
     <main class="wrapper">
       <h1 class="headerPage">Пользователи</h1>
-      <pre>
-        {{ getUsers }}
-      </pre>
+      <UsersList :users="getUsers" />
     </main>
   </NuxtLayout>
 </template>
