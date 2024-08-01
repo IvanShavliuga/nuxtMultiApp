@@ -60,8 +60,8 @@ defineProps({
   }
   &__icon {
     position: absolute;
-    bottom: -8px;
-    right: -8px;
+    bottom: -4px;
+    right: -6px;
     display: block;
     width: 24px;
     height: 24px;
@@ -72,7 +72,7 @@ defineProps({
     display: flex;
     justify-content: flex-start;
     align-items: stretch;
-    gap: 8px;
+    gap: 16px;
   }
   &__name {
     // display: flex;
