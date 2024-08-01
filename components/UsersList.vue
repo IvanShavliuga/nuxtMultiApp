@@ -1,5 +1,5 @@
 <template>
-  <ul class="postsList">
+  <ul class="usersList">
     <li v-for="u of users" :key="u.id" class="item">
       <UserCard :user="u" />
     </li>
@@ -16,7 +16,7 @@ defineProps({
 </script>
 
 <style scoped lang="less">
-.postsList {
+.usersList {
   display: flex;
   justify-content: flex-start;
   gap: 8px;

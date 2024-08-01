@@ -68,6 +68,10 @@ const avatars = computed(() => user.value.friends.map((f) => f.avatar));
 .userCard {
   .card();
   height: 320px;
+  @media screen and (max-width: 450px) {
+    width: 85vw;
+    margin: 0 auto;
+  }
   &__date {
     color: @blockLinkColor;
     font-weight: 700;
@@ -174,11 +178,6 @@ const avatars = computed(() => user.value.friends.map((f) => f.avatar));
     text-align: center;
     padding: 0 4px;
     border-radius: 6px;
-  }
-  @media screen and (max-width: 450px) {
-    width: auto;
-    min-width: 230px;
-    max-width: 90%;
   }
 }
 </style>
