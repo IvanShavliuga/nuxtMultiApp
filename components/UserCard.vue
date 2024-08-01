@@ -1,7 +1,7 @@
 <template>
   <article class="userCard">
     <div class="userCard__box">
-      <div class="userCard__avabox">
+      <div class="userCard__avabox" :title="user.rang">
         <img :src="user.avatar" class="userCard__avatar" />
         <!-- <p class="userCard__rang">{{ user.rang }}</p> -->
         <img
@@ -30,7 +30,7 @@
     </div>
     <div class="userCard__box">
       <p class="userCard__login">{{ user.login }}</p>
-      <a class="userCard__link" :href="user.link">{{ linkTitle }}</a>
+      <a class="userCard__link" :href="user.link" target="_blank">{{ linkTitle }}</a>
     </div>
     <div class="userCard__skillbox">
       <BaseChips :list="user.skills" />
@@ -128,8 +128,8 @@ const avatars = computed(() => user.value.friends.map((f) => f.avatar));
     bottom: -4px;
     right: -6px;
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     padding: 3px;
     background-color: @iconRangColor;
     border: 1px solid @iconRangBordeer;
