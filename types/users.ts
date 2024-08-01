@@ -3,7 +3,7 @@ export type UserRang = "Admin" | "User" | "Moderator";
 export type UserGender = "men" | "women";
 export type UserMessager = "phone" | "email" | "telegram";
 export type UserContact = {
-  messenger: UserMessager;
+  messager: UserMessager;
   contact: string;
 };
 export type User = {

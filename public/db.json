@@ -3,7 +3,7 @@
     {
       "id": 0,
       "rang": "Admin",
-      "link": "https://test.ru/id",
+      "link": "https://www.linkedin.com/in/ivanshavliugaivanov/",
       "login": "iv2",
       "gender": "men",
       "age": 31,
@@ -24,22 +24,22 @@
       "city": "Novopolotsk, Belarus",
       "contacts": [
         {
-          "messenger": "phone",
+          "messager": "phone",
           "contact": "+375 (111) 111-11-11"
         },
         {
-          "messenger": "email",
+          "messager": "email",
           "contact": "iva.drakon.nov@gmail.com"
         },
         {
-          "messenger": "telegram",
+          "messager": "telegram",
           "contact": "https://t.me/vuejscodesru"
         }
       ]
     },
     {
       "id": 1,
-      "link": "https://test.ru/id",
+      "link": "https://www.linkedin.com/in/ivanshavliugaivanov/",
       "login": "max",
       "rang": "Moderator",
       "gender": "men",
@@ -61,22 +61,22 @@
       "city": "Minsk, Belarus",
       "contacts": [
         {
-          "messenger": "phone",
+          "messager": "phone",
           "contact": "+375 (222) 222-22-2"
         },
         {
-          "messenger": "email",
+          "messager": "email",
           "contact": "smirnov.nov@gmail.com"
         },
         {
-          "messenger": "telegram",
+          "messager": "telegram",
           "contact": "https://t.me/vuejscodesru"
         }
       ]
     },
     {
       "id": 2,
-      "link": "https://test.ru/id",
+      "link": "https://www.linkedin.com/in/ivanshavliugaivanov/",
       "login": "alex",
       "password": "12345",
       "rang": "User",
@@ -98,22 +98,22 @@
       "city": "Rostov, Russia",
       "contacts": [
         {
-          "messenger": "phone",
+          "messager": "phone",
           "contact": "+7 (222) 222-22-2"
         },
         {
-          "messenger": "email",
+          "messager": "email",
           "contact": "alex@gmail.com"
         },
         {
-          "messenger": "telegram",
+          "messager": "telegram",
           "contact": "https://t.me/vuejscodesru"
         }
       ]
     },
     {
       "id": 3,
-      "link": "https://test.ru/id",
+      "link": "https://www.linkedin.com/in/ivanshavliugaivanov/",
       "login": "vlad",
       "gender": "men",
       "rang": "User",
@@ -135,22 +135,22 @@
       "city": "Rostov, Russia",
       "contacts": [
         {
-          "messenger": "phone",
+          "messager": "phone",
           "contact": "+7 (222) 222-22-2"
         },
         {
-          "messenger": "email",
+          "messager": "email",
           "contact": "alex@gmail.com"
         },
         {
-          "messenger": "telegram",
+          "messager": "telegram",
           "contact": "https://t.me/vuejscodesru"
         }
       ]
     },
     {
       "id": 4,
-      "link": "https://test.ru/id",
+      "link": "https://www.linkedin.com/in/ivanshavliugaivanov/",
       "login": "oleg",
       "gender": "men",
       "password": "12345",
@@ -172,22 +172,22 @@
       "city": "Rostov, Russia",
       "contacts": [
         {
-          "messenger": "phone",
+          "messager": "phone",
           "contact": "+7 (222) 222-22-2"
         },
         {
-          "messenger": "email",
+          "messager": "email",
           "contact": "alex@gmail.com"
         },
         {
-          "messenger": "telegram",
+          "messager": "telegram",
           "contact": "https://t.me/vuejscodesru"
         }
       ]
     },
     {
       "id": 5,
-      "link": "https://test.ru/id",
+      "link": "https://www.linkedin.com/in/ivanshavliugaivanov/",
       "login": "ann",
       "rang": "User",
       "age": 31,
@@ -201,22 +201,22 @@
       "city": "Rostov, Russia",
       "contacts": [
         {
-          "messenger": "phone",
+          "messager": "phone",
           "contact": "+7 (222) 222-22-2"
         },
         {
-          "messenger": "email",
+          "messager": "email",
           "contact": "ann@gmail.com"
         },
         {
-          "messenger": "telegram",
+          "messager": "telegram",
           "contact": "https://t.me/vuejscodesru"
         }
       ]
     },
     {
       "id": 6,
-      "link": "https://test.ru/id",
+      "link": "https://www.linkedin.com/in/ivanshavliugaivanov/",
       "login": "angel",
       "rang": "User",
       "age": 27,
@@ -230,15 +230,15 @@
       "city": "Rostov, Russia",
       "contacts": [
         {
-          "messenger": "phone",
+          "messager": "phone",
           "contact": "+7 (222) 222-22-2"
         },
         {
-          "messenger": "email",
+          "messager": "email",
           "contact": "angel.s@gmail.com"
         },
         {
-          "messenger": "telegram",
+          "messager": "telegram",
           "contact": "https://t.me/vuejscodesru"
         }
       ]
