@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { useUsersStore } from "./../stores/users";
+import { useUsersStore } from "../../stores/users";
 const { getUsers, addUsers } = useUsersStore();
 
 const load = ref(false);
