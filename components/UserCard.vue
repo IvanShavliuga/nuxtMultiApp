@@ -30,7 +30,9 @@
     </div>
     <div class="userCard__box">
       <p class="userCard__login">{{ user.login }}</p>
-      <a class="userCard__link" :href="user.link" target="_blank">{{ linkTitle }}</a>
+      <a class="userCard__link" :href="user.link" target="_blank">{{
+        linkTitle
+      }}</a>
     </div>
     <div class="userCard__skillbox">
       <BaseChips :list="user.skills" />
@@ -85,7 +87,7 @@ const avatars = computed(() => user.value.friends.map((f) => f.avatar));
     position: relative;
   }
   &__contactsList {
-     flex-grow: 1;
+    flex-grow: 1;
     list-style: none;
   }
   &__contactItem {
