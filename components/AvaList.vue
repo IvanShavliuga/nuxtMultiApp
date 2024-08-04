@@ -4,7 +4,7 @@
       <img :src="l" class="avaList__img" />
     </li>
     <li v-if="isMore" class="avaList__more">
-      <div class="avaList__text">+{{ list.length - 5 }}</div>
+      <div class="avaList__text">+{{ list.length - countDisplay }}</div>
     </li>
   </ul>
 </template>
@@ -12,16 +12,19 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
 import { defineProps, computed, toRefs } from "vue";
-const props = defineProps({ list: Array as PropType<string[]> });
-const { list } = toRefs(props);
+const props = defineProps({
+  list: Array as PropType<string[]>,
+  countDisplay: { type: Number, default: 5 },
+});
+const { list, countDisplay } = toRefs(props);
 const displayList = computed(() => {
-  if (list.value.length >= 5) {
-    return list.value.slice(0, 5);
+  if (list.value.length >= countDisplay.value) {
+    return list.value.slice(0, countDisplay.value);
   } else {
     return list.value;
   }
 });
-const isMore = computed(() => list.value.length >= 5);
+const isMore = computed(() => list.value.length > countDisplay.value);
 </script>
 
 <style scoped lang="less">

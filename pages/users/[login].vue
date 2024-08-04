@@ -16,9 +16,15 @@
           </li>
         </ul>
       </div>
-      <pre>
-        {{ groupsByUser }}
-      </pre>
+      <div class="userBoxPanel">
+        <h2 class="userPage__header">Группы</h2>
+        <ul class="userBoxPanel__list">
+          <li v-for="g in groupsByUser" :key="g.id">
+            <GroupShortCard :group="g" :admin-id="getUserAllData.userView.id" />
+          </li>
+        </ul>
+      </div>
+      <pre />
     </main>
   </NuxtLayout>
 </template>
