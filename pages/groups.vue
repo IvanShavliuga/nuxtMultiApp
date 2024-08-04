@@ -23,7 +23,7 @@ addPosts().then(() => {
   .pageWrapper();
 }
 .headerPage {
-    color: @headerPageColor;
-    font-size: @headerPageSize;
-  }
+  color: @headerPageColor;
+  font-size: @headerPageSize;
+}
 </style>

@@ -6,8 +6,12 @@
         <h1 class="userHeadPanel__name">{{ user.name }}</h1>
         <p class="userHeadPanel__login">{{ user.login }}</p>
         <p class="userHeadPanel__spec">{{ user.spec }}</p>
-        <a :href="user.link" class="userHeadPanel__link" target="_blank">{{ linkTitle }}</a>
-        <p class="userHeadPanel__ageCity">{{ user.age }} лет, {{ user.city }}</p>
+        <a :href="user.link" class="userHeadPanel__link" target="_blank">{{
+          linkTitle
+        }}</a>
+        <p class="userHeadPanel__ageCity">
+          {{ user.age }} лет, {{ user.city }}
+        </p>
       </div>
     </div>
     <div class="userHeadPanel__borderBox">
@@ -72,7 +76,7 @@ const linkTitle = computed(() => user.value.link.split("//")[1].split("/")[0]);
     border-radius: 8px;
     padding: 8px;
   }
-   &__contact {
+  &__contact {
     color: @blockLinkColor;
   }
   &__messager {

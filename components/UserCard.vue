@@ -4,7 +4,12 @@
       <BaseAvatar :rang="user.rang" :avatar="user.avatar" />
       <div>
         <h2 class="userCard__name">
-          <div>{{ user.name }}</div>
+          <a
+            :href="'/users/' + user.login"
+            class="userCard__userPage"
+            target="_blank"
+            >{{ user.name }}</a
+          >
         </h2>
         <h3 class="userCard__spec">{{ user.spec }}</h3>
         <p class="userCard__ageCity">{{ user.age }} лет, {{ user.city }}</p>
@@ -116,7 +121,8 @@ const avatars = computed(() => user.value.friends.map((f) => f.avatar));
     margin-top: 16px;
     padding-top: 8px;
   }
-  &__name {
+  &__name,
+  &__userPage {
     // display: flex;
     // justify-content: flex-start;
     // align-items: center;
@@ -124,6 +130,7 @@ const avatars = computed(() => user.value.friends.map((f) => f.avatar));
     color: @blockHeaderColor;
     font-size: 16px;
     font-weight: 700;
+    text-decoration: none;
   }
   &__spec {
     color: @blockTextColor;
