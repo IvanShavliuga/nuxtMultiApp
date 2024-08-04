@@ -1,8 +1,21 @@
 <template>
   <NuxtLayout name="home">
     <NuxtPage />
-    <main v-if="load" class="wrapper">
+    <main v-if="load" class="userPage wrapper">
       <UserHeadPanel :user="getUserAllData.userView" />
+      <div class="userFollowersPanel">
+        <h2 class="userPage__header">Подписчики</h2>
+        <ul class="userFollowersPanel__list">
+          <li v-for="f in getUserAllData.userView.friends" :key="f.id">
+            <UserShortCard
+              :avatar="f.avatar"
+              :login="f.login"
+              :name="f.name"
+              :spec="f.spec"
+            />
+          </li>
+        </ul>
+      </div>
     </main>
   </NuxtLayout>
 </template>
@@ -29,6 +42,30 @@ addUserView(login).then(() => {
   @media screen and (max-width: 930px) {
     width: calc(100% - 32px);
     margin: 16px;
+  }
+}
+.userPage {
+  &__header {
+    color: @blockHeaderColor;
+    font-size: 18px;
+  }
+}
+.userFollowersPanel {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid @blockBorder;
+  border-radius: 16px;
+  padding: @blockPadding;
+  background-color: @blockColor;
+  margin: 16px 0;
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 16px 0;
   }
 }
 </style>

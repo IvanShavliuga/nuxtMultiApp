@@ -29,7 +29,7 @@ import type { PropType } from "vue";
 import type { UserRang } from "./../types/users";
 defineProps({
   avatar: String,
-  rang: String as PropType<UserRang>,
+  rang: { type: String as PropType<UserRang>, default: "" },
   size: { type: String, default: "default" },
 });
 </script>

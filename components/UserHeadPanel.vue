@@ -51,7 +51,6 @@ const linkTitle = computed(() => user.value.link.split("//")[1].split("/")[0]);
   border-radius: 16px;
   padding: @blockPadding;
   background-color: @blockColor;
-  widows: inherit;
   &__box {
     display: flex;
     justify-content: flex-start;
