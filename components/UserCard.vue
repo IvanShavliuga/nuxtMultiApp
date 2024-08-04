@@ -7,7 +7,7 @@
           <div>{{ user.name }}</div>
         </h2>
         <h3 class="userCard__spec">{{ user.spec }}</h3>
-        <p class="userCard__spec">{{ user.age }} лет, {{ user.city }}</p>
+        <p class="userCard__ageCity">{{ user.age }} лет, {{ user.city }}</p>
       </div>
     </div>
     <div class="userCard__box">

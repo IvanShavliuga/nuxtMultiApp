@@ -4,8 +4,10 @@
       <BaseAvatar :rang="user.rang" :avatar="user.avatar" size="large" />
       <div>
         <h1 class="userHeadPanel__name">{{ user.name }}</h1>
+        <p class="userHeadPanel__login">{{ user.login }}</p>
         <p class="userHeadPanel__spec">{{ user.spec }}</p>
         <a :href="user.link" class="userHeadPanel__link" target="_blank">{{ linkTitle }}</a>
+        <p class="userHeadPanel__ageCity">{{ user.age }} лет, {{ user.city }}</p>
       </div>
     </div>
     <pre>{{ user }}</pre>
@@ -37,11 +39,47 @@ const linkTitle = computed(() => user.value.link.split("//")[1].split("/")[0]);
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 16px;
+    gap: 32px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid @blockBorder;
   }
   &__name {
     color: @headerPageColor;
     font-size: @headerPageSize;
+  }
+  &__link {
+    color: @blockLinkColor;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  &__spec {
+    color: @blockTextColor;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  &__ageCity {
+    color: @blockTextColor;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  &__login {
+    color: @chipsTextColor;
+    background-color: @chipsColor;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: default;
+    width: 48px;
+    text-align: center;
+    margin-bottom: 8px;
+    &:hover {
+      background-color: @chipsHoverColor;
+      color: @chipsHoverTextColor;
+    }
+    @media screen and (max-width: 350px) {
+      width: auto;
+    }
   }
 }
 </style>
