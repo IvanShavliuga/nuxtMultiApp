@@ -48,8 +48,9 @@ export default eventHandler(async (event) => {
     }
     const followParametr = parametrs.filter((p) => "follow" in p);
     if (followParametr.length) {
-      const grp = res.filter((u) =>
-        u.followers.findIndex((f) => f.id === +followParametr[0].follow) > -1,
+      const grp = res.filter(
+        (u) =>
+          u.followers.findIndex((f) => f.id === +followParametr[0].follow) > -1,
       );
       filterRes.push(...grp);
     }
