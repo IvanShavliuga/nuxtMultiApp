@@ -1,6 +1,6 @@
 <template>
   <article class="userHeadPanel">
-    <div class="userHeadPanel__box">
+    <div class="userHeadPanel__box userHeadPanel__borderBox">
       <BaseAvatar :rang="user.rang" :avatar="user.avatar" size="large" />
       <div>
         <h1 class="userHeadPanel__name">{{ user.name }}</h1>
@@ -10,6 +10,19 @@
         <p class="userHeadPanel__ageCity">{{ user.age }} лет, {{ user.city }}</p>
       </div>
     </div>
+    <div class="userHeadPanel__borderBox">
+      <BaseChips :list="user.skills" />
+    </div>
+    <ul class="userHeadPanel__contactsList userHeadPanel__borderBox">
+      <li
+        v-for="(contact, key) in user.contacts"
+        :key="key"
+        class="userHeadPanel__contactItem"
+      >
+        <p class="userHeadPanel__messager">{{ contact.messager }}</p>
+        <p class="userHeadPanel__contact">{{ contact.contact }}</p>
+      </li>
+    </ul>
     <pre>{{ user }}</pre>
   </article>
 </template>
@@ -40,9 +53,30 @@ const linkTitle = computed(() => user.value.link.split("//")[1].split("/")[0]);
     justify-content: flex-start;
     align-items: flex-start;
     gap: 32px;
+  }
+  &__contactsList {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    list-style: none;
+    gap: 8px;
+  }
+  &__borderBox {
     padding-bottom: 8px;
     margin-bottom: 8px;
     border-bottom: 1px solid @blockBorder;
+  }
+  &__contactItem {
+    width: 300px;
+    border: 1px solid @blockBorder;
+    border-radius: 8px;
+    padding: 8px;
+  }
+   &__contact {
+    color: @blockLinkColor;
+  }
+  &__messager {
+    color: @blockValueColor;
   }
   &__name {
     color: @headerPageColor;
