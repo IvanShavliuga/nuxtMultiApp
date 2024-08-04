@@ -1,6 +1,9 @@
 <template>
   <div class="avabox" :title="rang">
-    <img :src="avatar" class="avabox__avatar" />
+    <img
+      :src="avatar"
+      :class="size === 'default' ? 'avabox__avatar' : 'avabox__avatar-' + size"
+    />
     <!-- <p class="avabox__rang">{{ user.rang }}</p> -->
     <img
       v-if="rang === 'Admin'"
@@ -27,6 +30,7 @@ import type { UserRang } from "./../types/users";
 defineProps({
   avatar: String,
   rang: String as PropType<UserRang>,
+  size: { type: String, default: "default" },
 });
 </script>
 
@@ -38,6 +42,11 @@ defineProps({
     width: 48px;
     height: 48px;
     border-radius: 50%;
+    &-large {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+    }
   }
   &__icon {
     position: absolute;

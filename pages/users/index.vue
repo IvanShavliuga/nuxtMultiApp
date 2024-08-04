@@ -25,4 +25,8 @@ addUsers().then(() => {
 .wrapper {
   .pageWrapper();
 }
+.headerPage {
+    color: @headerPageColor;
+    font-size: @headerPageSize;
+  }
 </style>

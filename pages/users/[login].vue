@@ -1,11 +1,8 @@
 <template>
   <NuxtLayout name="home">
     <NuxtPage />
-    <main class="wrapper">
-      <h1 class="headerPage">{{ login }}</h1>
-      <pre v-if="load">
-        {{ getUserAllData.userView }}
-      </pre>
+    <main v-if="load" class="wrapper">
+      <UserHeadPanel :user="getUserAllData.userView" />
     </main>
   </NuxtLayout>
 </template>
@@ -24,4 +21,11 @@ addUserView(login).then(() => {
 });
 </script>
 
-<style></style>
+<style scoped lang="less">
+@import "./../assets/styles/global.less";
+.wrapper {
+  .pageWrapper();
+  width: @widthDetailPageWrapper;
+  margin: 16px auto;
+}
+</style>
