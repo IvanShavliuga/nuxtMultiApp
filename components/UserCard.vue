@@ -1,25 +1,7 @@
 <template>
   <article class="userCard">
     <div class="userCard__box">
-      <div class="userCard__avabox" :title="user.rang">
-        <img :src="user.avatar" class="userCard__avatar" />
-        <!-- <p class="userCard__rang">{{ user.rang }}</p> -->
-        <img
-          v-if="user.rang === 'Admin'"
-          src="./../assets/icons/admin.svg"
-          class="userCard__icon"
-        />
-        <img
-          v-if="user.rang === 'Moderator'"
-          src="./../assets/icons/moderator.svg"
-          class="userCard__icon"
-        />
-        <img
-          v-if="user.rang === 'User'"
-          src="./../assets/icons/user.svg"
-          class="userCard__icon"
-        />
-      </div>
+      <BaseAvatar :rang="user.rang" :avatar="user.avatar" />
       <div>
         <h2 class="userCard__name">
           <div>{{ user.name }}</div>
@@ -78,14 +60,6 @@ const avatars = computed(() => user.value.friends.map((f) => f.avatar));
     color: @blockLinkColor;
     font-weight: 700;
   }
-  &__avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-  }
-  &__avabox {
-    position: relative;
-  }
   &__contactsList {
     flex-grow: 1;
     list-style: none;
@@ -124,18 +98,6 @@ const avatars = computed(() => user.value.friends.map((f) => f.avatar));
     color: @blockLinkColor;
     font-size: 12px;
     font-weight: 500;
-  }
-  &__icon {
-    position: absolute;
-    bottom: -4px;
-    right: -6px;
-    display: block;
-    width: 20px;
-    height: 20px;
-    padding: 3px;
-    background-color: @iconRangColor;
-    border: 1px solid @iconRangBordeer;
-    border-radius: 3px;
   }
   &__box {
     display: flex;
