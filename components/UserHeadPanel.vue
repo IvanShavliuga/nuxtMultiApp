@@ -2,7 +2,7 @@
   <article class="userHeadPanel">
     <div class="userHeadPanel__box userHeadPanel__borderBox">
       <BaseAvatar :rang="user.rang" :avatar="user.avatar" size="large" />
-      <div>
+      <div class="userHeadPanel__head">
         <h1 class="userHeadPanel__name">{{ user.name }}</h1>
         <p class="userHeadPanel__login">{{ user.login }}</p>
         <p class="userHeadPanel__spec">{{ user.spec }}</p>
@@ -17,7 +17,7 @@
     <div class="userHeadPanel__borderBox">
       <BaseChips :list="user.skills" />
     </div>
-    <ul class="userHeadPanel__contactsList userHeadPanel__borderBox">
+    <ul class="userHeadPanel__contactsList">
       <li
         v-for="(contact, key) in user.contacts"
         :key="key"
@@ -27,7 +27,6 @@
         <p class="userHeadPanel__contact">{{ contact.contact }}</p>
       </li>
     </ul>
-    <pre>{{ user }}</pre>
   </article>
 </template>
 
@@ -52,18 +51,35 @@ const linkTitle = computed(() => user.value.link.split("//")[1].split("/")[0]);
   border-radius: 16px;
   padding: @blockPadding;
   background-color: @blockColor;
+  widows: inherit;
   &__box {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 32px;
+    @media screen and (max-width: 750px) {
+      gap: 16px;
+    }
+    @media screen and (max-width: 490px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__head {
+    @media screen and (max-width: 490px) {
+      //   width: 100%;
+      align-self: stretch;
+    }
   }
   &__contactsList {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-start;
     list-style: none;
     gap: 8px;
+    @media screen and (max-width: 750px) {
+      flex-direction: column;
+    }
   }
   &__borderBox {
     padding-bottom: 8px;
@@ -71,13 +87,19 @@ const linkTitle = computed(() => user.value.link.split("//")[1].split("/")[0]);
     border-bottom: 1px solid @blockBorder;
   }
   &__contactItem {
-    width: 300px;
+    // width: 300px;
+    flex-grow: 1;
     border: 1px solid @blockBorder;
     border-radius: 8px;
     padding: 8px;
+    @media screen and (max-width: 750px) {
+      width: calc(100% - 16px);
+      margin-right: 16px;
+    }
   }
   &__contact {
     color: @blockLinkColor;
+    font-size: 14px;
   }
   &__messager {
     color: @blockValueColor;
@@ -85,6 +107,9 @@ const linkTitle = computed(() => user.value.link.split("//")[1].split("/")[0]);
   &__name {
     color: @headerPageColor;
     font-size: @headerPageSize;
+    @media screen and (max-width: 570px) {
+      font-size: 24px;
+    }
   }
   &__link {
     color: @blockLinkColor;

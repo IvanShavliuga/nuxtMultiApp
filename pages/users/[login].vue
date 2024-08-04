@@ -24,8 +24,11 @@ addUserView(login).then(() => {
 <style scoped lang="less">
 @import "./../assets/styles/global.less";
 .wrapper {
-  .pageWrapper();
   width: @widthDetailPageWrapper;
   margin: 16px auto;
+  @media screen and (max-width: 930px) {
+    width: calc(100% - 32px);
+    margin: 16px;
+  }
 }
 </style>
