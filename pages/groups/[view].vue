@@ -17,23 +17,23 @@
       <div class="groupStat">
         <p class="groupStat__text">
           Количество постов:
-          <span class="groupStat__value"> 0</span>
+          <span class="groupStat__value">{{ postsForGroup.length }}</span>
         </p>
         <p class="groupStat__text">
           Количество лайков:
-          <span class="groupStat__value"> 0</span>
+          <span class="groupStat__value">{{ likesCount }}</span>
         </p>
         <p class="groupStat__text">
           Количество репостов:
-          <span class="groupStat__value"> 0</span>
+          <span class="groupStat__value"> {{ repostsCount }}</span>
         </p>
         <p class="groupStat__text">
           Количество комментариев:
-          <span class="groupStat__value"> 0</span>
+          <span class="groupStat__value">{{ commentsCount }}</span>
         </p>
         <p class="groupStat__text">
           Количество просмотров:
-          <span class="groupStat__value"> 0</span>
+          <span class="groupStat__value">{{ viewsCount }}</span>
         </p>
       </div>
       <div class="groupPanel__flexblock">
@@ -50,12 +50,17 @@
         </div>
       </div>
     </div>
+    <template v-if="postsForGroup.length">
     <PostsList :posts="postsForGroup" />
+    </template>
+    <template v-else>
+        <p>Нет постов</p>
+    </template>
   </main>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { useGroupsStore } from "../../stores/groups";
 import { useRouter } from "vue-router";
 import { useNewsStore } from "../../stores/news";
@@ -72,6 +77,34 @@ const load = ref(false);
 
 load.value = true;
 const avatars = groupView.followers.map((f) => f.avatar);
+const likesCount = computed(() => {
+  let likes = 0;
+  postsForGroup.forEach((element) => {
+    likes += element.like.length;
+  });
+  return likes;
+});
+const repostsCount = computed(() => {
+  let reposts = 0;
+  postsForGroup.forEach((element) => {
+    reposts += element.repost.length;
+  });
+  return reposts;
+});
+const commentsCount = computed(() => {
+  let comments = 0;
+  postsForGroup.forEach((element) => {
+    comments += element.comments.length;
+  });
+  return comments;
+});
+const viewsCount = computed(() => {
+  let views = 0;
+  postsForGroup.forEach((element) => {
+    views += element.views.length;
+  });
+  return views;
+});
 </script>
 
 <style scoped lang="less">
