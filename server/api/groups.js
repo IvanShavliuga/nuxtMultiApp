@@ -28,7 +28,6 @@ export default eventHandler(async (event) => {
         name: f.name,
         login: f.login,
       }));
-    r.posts = posts.filter((p) => g.idNews.includes(p.groupId));
     return r;
   });
   const { url } = event.node.req;
@@ -52,6 +51,12 @@ export default eventHandler(async (event) => {
         (u) =>
           u.followers.findIndex((f) => f.id === +followParametr[0].follow) > -1,
       );
+      filterRes.push(...grp);
+    }
+    const groupParametr = parametrs.filter((p) => "view" in p);
+    if (groupParametr.length) {
+      const grp = res.filter(
+        (g) => g.id === +groupParametr[0].view );
       filterRes.push(...grp);
     }
     return {

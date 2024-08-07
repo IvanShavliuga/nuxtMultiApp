@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { useGroupsStore } from "./../stores/groups";
+import { useGroupsStore } from "../../stores/groups";
 const { getGroups, addGroups } = useGroupsStore();
 
 const load = ref(false);

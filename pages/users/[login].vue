@@ -72,14 +72,14 @@ import { useNewsStore } from "../../stores/news";
 import type { Group } from "../../types/groups";
 // import type { Post } from "../../types/news";
 const { addUserView, getUserAllData } = useUsersStore();
-const { getGroupsAllData, addGroupsAllData } = useGroupsStore();
+const { getGroupsAllData, addGroupsByUser } = useGroupsStore();
 const { getAllData, addPostsForUser } = useNewsStore();
 const { currentRoute } = useRouter();
 const login: string = currentRoute.value.params.login as string;
 const load = ref(false);
 // init()
 await addUserView(login);
-await addGroupsAllData(getUserAllData.userView.id);
+await addGroupsByUser(getUserAllData.userView.id);
 await addPostsForUser(getUserAllData.userView.id);
 load.value = true;
 const groupsByUser: ComputedRef<Group[]> = computed(
