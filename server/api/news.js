@@ -1,8 +1,7 @@
 // /server/api/read.get.ts
 import * as path from "node:path";
 import * as fs from "node:fs";
-export default eventHandler(async () => {
-  // event
+export default eventHandler(async (event) => {
   const filePath = path.join(process.cwd(), "public", "db.json");
   const data = JSON.parse(await fs.promises.readFile(filePath, "utf-8"));
   const { users, comments, groups } = data;
@@ -55,8 +54,33 @@ export default eventHandler(async () => {
         name: u.name,
         login: u.login,
       }));
+
     return fm;
   });
+  const { url } = event.node.req;
+  const query = url.split("?");
+  if (query.length === 2) {
+    const parametrs = query[1].split("&").map((p) => {
+      const pd = p.split("=");
+      const po = {};
+      po[pd[0]] = pd[1];
+      return po;
+    });
+    const filterRes = [];
+    const authorParametr = parametrs.filter((p) => "author" in p);
+    if (authorParametr.length) {
+      const grp = posts.filter((u) => u.userId === +authorParametr[0].author);
+      filterRes.push(...grp);
+    }
+    const viewParametr = parametrs.filter((p) => "view" in p);
+    if (viewParametr.length) {
+      const grp = posts.filter((u) => u.groupId === +viewParametr[0].view);
+      filterRes.push(...grp);
+    }
+    return {
+      posts: filterRes,
+    };
+  }
   return {
     posts: posts,
   };

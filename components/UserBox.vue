@@ -7,14 +7,16 @@
       :city="user.city"
     />
     <p class="userBox__title">{{ title }}</p>
-    <div
+    <a
       class="userBox__badge"
+      :href="`/users/${user.login}`"
+      target="_blank"
       @mouseenter="handlerShowTooltip"
       @mouseleave="handlerHideTooltip"
     >
       <img class="userBox__img" :src="user.avatar" />
       <p class="userBox__username">{{ user.login }}</p>
-    </div>
+    </a>
   </div>
 </template>
 
@@ -46,6 +48,7 @@ function handlerHideTooltip() {
     min-width: 120px;
     cursor: default;
     padding: 2px;
+    text-decoration: none;
   }
   &__img {
     width: 32px;
