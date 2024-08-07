@@ -1,6 +1,14 @@
 <template>
   <article class="groupCard">
-    <h3>{{ group.name }}</h3>
+    <h2>
+      <a
+        class="groupCard__header"
+        :href="`/groups/${group.id}`"
+        target="_blank"
+      >
+        {{ group.name }}</a
+      >
+    </h2>
     <p class="groupCard__cat">{{ group.category }}</p>
     <p class="groupCard__desc">{{ group.desc }}</p>
     <p class="groupCard__text">
@@ -47,5 +55,10 @@ const avatars = group.value.followers.map((f) => f.avatar);
     //   align-items: flex-start;
     // }
   }
+  &__header {
+    font-size: 20px;
+      text-decoration: none;
+      color: @blockHeaderColor;
+    }
 }
 </style>

@@ -51,10 +51,10 @@
       </div>
     </div>
     <template v-if="postsForGroup.length">
-    <PostsList :posts="postsForGroup" />
+      <PostsList :posts="postsForGroup" />
     </template>
     <template v-else>
-        <p>Нет постов</p>
+      <p>Нет постов</p>
     </template>
   </main>
 </template>
