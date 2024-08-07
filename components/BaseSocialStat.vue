@@ -20,7 +20,9 @@
         @mouseenter="handlerShowTooltip"
         @mouseleave="handlerHideTooltip"
       >
-        <img :src="'' + avatar" class="stat__avatar" />
+        <a :href="`/users/${login}`" class="stat__link" target="_blank">
+          <img :src="avatar" class="stat__avatar" />
+        </a>
       </li>
     </ul>
   </div>
@@ -39,6 +41,7 @@ const props = defineProps({
   name: String,
   spec: String,
   city: String,
+  login: String,
 });
 const { like, repost, comments, views } = toRefs(props);
 const showTooltip = ref(false);
@@ -102,6 +105,7 @@ const statsList: ComputedRef<SocialStatList> = computed(() => {
     gap: 8px;
     width: 48px;
     opacity: 0.6;
+    cursor: default;
     &:hover {
       opacity: 1;
     }
@@ -114,6 +118,10 @@ const statsList: ComputedRef<SocialStatList> = computed(() => {
     width: @iconSize;
     height: @iconSize;
     border-radius: 50%;
+  }
+  &__link {
+    width: @iconSize;
+    height: @iconSize;
     margin-left: auto;
   }
 }

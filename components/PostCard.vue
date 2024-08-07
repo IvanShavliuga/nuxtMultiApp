@@ -16,6 +16,7 @@
       :name="post.user.name"
       :spec="post.user.spec"
       :city="post.user.city"
+      :login="post.user.login"
     />
     <!-- <pre>
         {{ post }}
