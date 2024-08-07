@@ -31,7 +31,7 @@ export const useNewsStore = defineStore("news", {
   }),
   getters: {
     getNews: (state) => state.news?.posts ?? [],
-    getAllData: (state) => state.news
+    getAllData: (state) => state.news,
   },
   actions: {
     async addPosts() {
@@ -41,7 +41,7 @@ export const useNewsStore = defineStore("news", {
       }
       return this.news;
     },
-    async addPostsForUser(id:Number) {
+    async addPostsForUser(id: number) {
       const r = await useFetch(`/api/news?author=${id}`);
       if (r.status.value === "success") {
         this.news.addPostsForUser(r.data.value.posts);
