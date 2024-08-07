@@ -1,36 +1,25 @@
 <template>
   <article class="userCard">
     <div class="userCard__box">
-      <div class="userCard__avabox" :title="user.rang">
-        <img :src="user.avatar" class="userCard__avatar" />
-        <!-- <p class="userCard__rang">{{ user.rang }}</p> -->
-        <img
-          v-if="user.rang === 'Admin'"
-          src="./../assets/icons/admin.svg"
-          class="userCard__icon"
-        />
-        <img
-          v-if="user.rang === 'Moderator'"
-          src="./../assets/icons/moderator.svg"
-          class="userCard__icon"
-        />
-        <img
-          v-if="user.rang === 'User'"
-          src="./../assets/icons/user.svg"
-          class="userCard__icon"
-        />
-      </div>
+      <BaseAvatar :rang="user.rang" :avatar="user.avatar" />
       <div>
         <h2 class="userCard__name">
-          <div>{{ user.name }}</div>
+          <a
+            :href="'/users/' + user.login"
+            class="userCard__userPage"
+            target="_blank"
+            >{{ user.name }}</a
+          >
         </h2>
         <h3 class="userCard__spec">{{ user.spec }}</h3>
-        <p class="userCard__spec">{{ user.age }} лет, {{ user.city }}</p>
+        <p class="userCard__ageCity">{{ user.age }} лет, {{ user.city }}</p>
       </div>
     </div>
     <div class="userCard__box">
       <p class="userCard__login">{{ user.login }}</p>
-      <a class="userCard__link" :href="user.link" target="_blank">{{ linkTitle }}</a>
+      <a class="userCard__link" :href="user.link" target="_blank">{{
+        linkTitle
+      }}</a>
     </div>
     <div class="userCard__skillbox">
       <BaseChips :list="user.skills" />
@@ -76,16 +65,8 @@ const avatars = computed(() => user.value.friends.map((f) => f.avatar));
     color: @blockLinkColor;
     font-weight: 700;
   }
-  &__avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-  }
-  &__avabox {
-    position: relative;
-  }
   &__contactsList {
-     flex-grow: 1;
+    flex-grow: 1;
     list-style: none;
   }
   &__contactItem {
@@ -123,18 +104,6 @@ const avatars = computed(() => user.value.friends.map((f) => f.avatar));
     font-size: 12px;
     font-weight: 500;
   }
-  &__icon {
-    position: absolute;
-    bottom: -4px;
-    right: -6px;
-    display: block;
-    width: 20px;
-    height: 20px;
-    padding: 3px;
-    background-color: @iconRangColor;
-    border: 1px solid @iconRangBordeer;
-    border-radius: 3px;
-  }
   &__box {
     display: flex;
     justify-content: flex-start;
@@ -152,7 +121,8 @@ const avatars = computed(() => user.value.friends.map((f) => f.avatar));
     margin-top: 16px;
     padding-top: 8px;
   }
-  &__name {
+  &__name,
+  &__userPage {
     // display: flex;
     // justify-content: flex-start;
     // align-items: center;
@@ -160,6 +130,7 @@ const avatars = computed(() => user.value.friends.map((f) => f.avatar));
     color: @blockHeaderColor;
     font-size: 16px;
     font-weight: 700;
+    text-decoration: none;
   }
   &__spec {
     color: @blockTextColor;

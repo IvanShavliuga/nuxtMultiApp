@@ -8,11 +8,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useGroupsStore } from "./../stores/groups";
-const { getGroups, addPosts } = useGroupsStore();
+const { getGroups, addGroups } = useGroupsStore();
 
 const load = ref(false);
 // init()
-addPosts().then(() => {
+addGroups().then(() => {
   load.value = true;
 });
 </script>
@@ -21,5 +21,9 @@ addPosts().then(() => {
 @import "./../assets/styles/global.less";
 .wrapper {
   .pageWrapper();
+}
+.headerPage {
+  color: @headerPageColor;
+  font-size: @headerPageSize;
 }
 </style>
