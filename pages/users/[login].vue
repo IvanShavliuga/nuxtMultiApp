@@ -24,7 +24,14 @@
           </li>
         </ul>
       </div>
-      <pre />
+      <!-- <div class="userBoxPanel">
+        <h2 class="userPage__header">Посты</h2>
+        <PostsList :posts="getAllData.postsForUser" />
+      </div> -->
+            <PostsList :posts="getAllData.postsForUser" />
+      <!-- <pre>
+        {{ getAllData }}
+      </pre> -->
     </main>
   </NuxtLayout>
 </template>
@@ -32,26 +39,34 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import { ref, computed } from "vue";
+import type { ComputedRef } from "vue";
 import { useUsersStore } from "../../stores/users";
 import { useGroupsStore } from "../../stores/groups";
+import { useNewsStore } from '../../stores/news'
+import type { Group } from "../../types/groups";
+// import type { Post } from "../../types/news";
 const { addUserView, getUserAllData } = useUsersStore();
 const { getGroupsAllData, addGroupsAllData } = useGroupsStore();
+const { getAllData, addPostsForUser } = useNewsStore()
 const { currentRoute } = useRouter();
 const login: string = currentRoute.value.params.login as string;
 const load = ref(false);
 // init()
 await addUserView(login);
 await addGroupsAllData(getUserAllData.userView.id);
+await addPostsForUser(getUserAllData.userView.id)
 load.value = true;
-console.log(getUserAllData);
-const groupsByUser = computed(() => getGroupsAllData.groupsByUser);
-// const postsByUser = computed(() => )
+const groupsByUser: ComputedRef<Group[]> = computed(
+  () => getGroupsAllData.groupsByUser,
+);
+console.log(groupsByUser);
 </script>
 
 <style scoped lang="less">
 @import "./../assets/styles/global.less";
 .wrapper {
-  width: @widthDetailPageWrapper;
+  .pageWrapper();
+  // width: @widthDetailPageWrapper;
   margin: 16px auto;
   @media screen and (max-width: 930px) {
     width: calc(100% - 32px);

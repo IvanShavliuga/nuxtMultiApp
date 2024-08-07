@@ -7,7 +7,6 @@
 @headerMenuColor: purple;
 @headerMenuFirstColor: red;
 @widthCard: 320px;
-@widthDetailPageWrapper: 900px;
 @blockColor: white;
 @blockPadding: 16px;
 @blockRadius: 16px;
@@ -24,6 +23,16 @@
 @iconSize: 28px;
 @iconRangColor: #550055;
 @iconRangBordeer: #ff00ff;
+@widthDetailPageWrapper: calc((@widthCard + 2 * 16px) * 3 + 8px * 3);
+@media screen and (max-width: 1110px) {
+  @widthDetailPageWrapper: calc((@widthCard + 2 * 16px) * 2 + 8px * 2);
+}
+@media screen and (max-width: 750px) {
+  @widthDetailPageWrapper: calc(@widthCard + 16px + 8px);
+}
+@media screen and (max-width: 450px) {
+  @widthDetailPageWrapper: 100%;
+}
 * {
   padding: 0;
   margin: 0;
@@ -31,6 +40,7 @@
 .pageWrapper {
   width: calc((@widthCard + 2 * 16px) * 3 + 8px * 3);
   margin: 0 auto;
+  
   @media screen and (max-width: 1110px) {
     width: calc((@widthCard + 2 * 16px) * 2 + 8px * 2);
   }
