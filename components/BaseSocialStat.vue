@@ -20,7 +20,7 @@
         @mouseenter="handlerShowTooltip"
         @mouseleave="handlerHideTooltip"
       >
-        <img :src="'.' + avatar" class="stat__avatar" />
+        <img :src="'' + avatar" class="stat__avatar" />
       </li>
     </ul>
   </div>
