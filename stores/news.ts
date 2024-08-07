@@ -10,9 +10,11 @@ class News {
   constructor() {
     this.posts = [];
     this.postsForUser = [];
+    this.postsForGroup = [];
   }
   posts: Post[] = [];
   postsForUser: Post[] = [];
+  postsForGroup: Post[] = [];
   addPosts(posts: Post[] = []) {
     if (posts.length) {
       this.posts.push(...posts);
@@ -21,6 +23,11 @@ class News {
   addPostsForUser(posts: Post[] = []) {
     if (posts.length) {
       this.postsForUser.push(...posts);
+    }
+  }
+  addPostsForGroup(posts: Post[] = []) {
+    if (posts.length) {
+      this.postsForGroup.push(...posts);
     }
   }
 }
@@ -45,6 +52,13 @@ export const useNewsStore = defineStore("news", {
       const r = await useFetch(`/api/news?author=${id}`);
       if (r.status.value === "success") {
         this.news.addPostsForUser(r.data.value.posts);
+      }
+      return this.news;
+    },
+    async addPostsForGroup(id: number) {
+      const r = await useFetch(`/api/news?view=${id}`);
+      if (r.status.value === "success") {
+        this.news.addPostsForGroup(r.data.value.posts);
       }
       return this.news;
     },

@@ -72,6 +72,11 @@ export default eventHandler(async (event) => {
       const grp = posts.filter((u) => u.userId === +authorParametr[0].author);
       filterRes.push(...grp);
     }
+    const viewParametr = parametrs.filter((p) => "view" in p);
+    if (viewParametr.length) {
+      const grp = posts.filter((u) => u.groupId === +viewParametr[0].view);
+      filterRes.push(...grp);
+    }
     return {
       posts: filterRes,
     };

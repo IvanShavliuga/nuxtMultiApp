@@ -50,10 +50,7 @@
         </div>
       </div>
     </div>
-    <pre>
-    {{ getGroupsAllData }}
-   </pre
-    >
+    <PostsList :posts="postsForGroup" />
   </main>
 </template>
 
@@ -61,12 +58,18 @@
 import { ref } from "vue";
 import { useGroupsStore } from "../../stores/groups";
 import { useRouter } from "vue-router";
+import { useNewsStore } from "../../stores/news";
+const { getAllData, addPostsForGroup } = useNewsStore();
 const { getGroupsAllData, addGroupView } = useGroupsStore();
 const { currentRoute } = useRouter();
 const viewId: string = currentRoute.value.params.view as string;
-const load = ref(false);
+
 await addGroupView(+viewId);
 const { groupView } = getGroupsAllData;
+await addPostsForGroup(+groupView.id);
+const { postsForGroup } = getAllData;
+const load = ref(false);
+
 load.value = true;
 const avatars = groupView.followers.map((f) => f.avatar);
 </script>
@@ -82,6 +85,7 @@ const avatars = groupView.followers.map((f) => f.avatar);
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 16px;
+  margin: 16px auto;
   &__header {
     color: @blockHeaderColor;
     font-size: 18px;
@@ -94,13 +98,15 @@ const avatars = groupView.followers.map((f) => f.avatar);
   border-radius: 16px;
   padding: @blockPadding;
   background-color: @blockColor;
-  margin: 16px 0;
-  width: 400px;
+  width: 300px;
+  @media screen and (max-width: 1111px) {
+    width: 100%;
+  }
   &__flexblock {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 16px;
     padding: 8px 0;
     border-top: 1px solid @blockBorder;
