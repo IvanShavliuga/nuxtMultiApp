@@ -5,7 +5,7 @@ export default eventHandler(async (event) => {
   //event
   const filePath = path.join(process.cwd(), "public", "db.json");
   const data = JSON.parse(await fs.promises.readFile(filePath, "utf-8"));
-  const { groups, users, posts } = data;
+  const { groups, users } = data;
   const res = groups.map((g) => {
     const usr = users.filter((u) => u.id === g.idAdmin);
     const user = {
@@ -55,8 +55,7 @@ export default eventHandler(async (event) => {
     }
     const groupParametr = parametrs.filter((p) => "view" in p);
     if (groupParametr.length) {
-      const grp = res.filter(
-        (g) => g.id === +groupParametr[0].view );
+      const grp = res.filter((g) => g.id === +groupParametr[0].view);
       filterRes.push(...grp);
     }
     return {

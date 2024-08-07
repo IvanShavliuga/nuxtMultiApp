@@ -26,7 +26,7 @@ class Groups {
     }
   }
   addGroupView(group: Group) {
-    this.groupView = group
+    this.groupView = group;
   }
 }
 
