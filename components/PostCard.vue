@@ -7,6 +7,9 @@
     </div>
     <p class="postCard__author">{{ post.group?.name ?? post.user.name }}</p>
     <p class="postCard__desc">{{ post.desc }}</p>
+    <div>
+      <PostComments :comments="post.comments" />
+    </div>
     <BaseSocialStat
       :like="post.like.length"
       :repost="post.repost.length"
@@ -18,9 +21,6 @@
       :city="post.user.city"
       :login="post.user.login"
     />
-    <div>
-      <PostComments :comments="post.comments" />
-    </div>
   </article>
 </template>
 
@@ -39,6 +39,7 @@ defineProps({ post: Object as PropType<Post> });
   &__date {
     color: @blockLinkColor;
     font-weight: 700;
+    font-size: 12px;
   }
   &__likes {
     display: flex;
@@ -49,6 +50,10 @@ defineProps({ post: Object as PropType<Post> });
     color: @blockHeaderColor;
     font-weight: 700;
     margin-bottom: 8px;
+  }
+  &__desc {
+    height: 190px;
+    border-bottom: 1px solid @blockBorder;
   }
   @media screen and (max-width: 450px) {
     width: auto;

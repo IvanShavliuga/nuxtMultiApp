@@ -47,6 +47,11 @@ defineProps({
       height: 120px;
       border-radius: 50%;
     }
+    &-mini {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
   }
   &__icon {
     position: absolute;
