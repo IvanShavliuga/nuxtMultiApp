@@ -4,7 +4,7 @@ export type Comment = {
   userId: number;
   user: UserShort;
   postId: number;
-  text: number;
+  text: string;
 };
 export type Post = {
   id: number;

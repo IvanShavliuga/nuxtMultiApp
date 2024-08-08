@@ -18,9 +18,9 @@
       :city="post.user.city"
       :login="post.user.login"
     />
-    <!-- <pre>
-        {{ post }}
-    </pre> -->
+     <div>
+      <PostComments :comments="post.comments"/>
+    </div>
   </article>
 </template>
 
