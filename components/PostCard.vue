@@ -18,8 +18,8 @@
       :city="post.user.city"
       :login="post.user.login"
     />
-     <div>
-      <PostComments :comments="post.comments"/>
+    <div>
+      <PostComments :comments="post.comments" />
     </div>
   </article>
 </template>

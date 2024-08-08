@@ -432,36 +432,48 @@
       "id": 0,
       "userId": 0,
       "postId": 7,
+      "date": "29.02.2020",
+      "time": "11:30",
       "text": "It`s cool. Good work"
     },
     {
       "id": 1,
       "userId": 6,
       "postId": 3,
+      "date": "29.02.2020",
+      "time": "11:30",
       "text": "It`s cool."
     },
     {
       "id": 2,
       "userId": 1,
       "postId": 5,
+      "date": "29.02.2020",
+      "time": "11:30",
       "text": "Good work. Liked it"
     },
     {
       "id": 3,
       "userId": 1,
       "postId": 0,
+      "date": "29.02.2020",
+      "time": "11:30",
       "text": "It`s cool. Good work"
     },
     {
       "id": 4,
       "userId": 3,
       "postId": 0,
+      "date": "29.02.2020",
+      "time": "11:30",
       "text": "It`s cool."
     },
     {
       "id": 5,
       "userId": 4,
       "postId": 5,
+      "date": "29.02.2020",
+      "time": "11:30",
       "text": "Good work. Liked it"
     }
   ],

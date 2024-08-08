@@ -1,12 +1,12 @@
 <template>
   <ul>
     <li v-for="c in comments" :key="c.id">
-        <pre>{{ c }}</pre>
-        <a :href="`/users/${c.user.login}`">
+      <pre>{{ c }}</pre>
+      <a :href="`/users/${c.user.login}`">
         <img :src="c.user.avatar" />
-        <div>{{ c.user.name}}</div>
-        </a>
-        <div>{{ c.text }}</div>
+        <div>{{ c.user.name }}</div>
+      </a>
+      <div>{{ c.text }}</div>
     </li>
   </ul>
 </template>
@@ -20,5 +20,4 @@ defineProps({ comments: Array as PropType<Comment[]> });
 
 <style scoped lang="less">
 @import "./../assets/styles/global.less";
-
 </style>

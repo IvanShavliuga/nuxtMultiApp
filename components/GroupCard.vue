@@ -57,8 +57,8 @@ const avatars = group.value.followers.map((f) => f.avatar);
   }
   &__header {
     font-size: 20px;
-      text-decoration: none;
-      color: @blockHeaderColor;
-    }
+    text-decoration: none;
+    color: @blockHeaderColor;
+  }
 }
 </style>
