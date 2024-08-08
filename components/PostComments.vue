@@ -30,7 +30,7 @@
             invert: true,
           }"
         -->
-        <Swiper :slides-per-view="1">
+        <Swiper :slides-per-view="1.05">
           <SwiperSlide v-for="c in comments" :key="c.id" style="height: auto">
             <li class="comment__item">
               <a class="comment__link" :href="`/users/${c.user.login}`">
@@ -47,7 +47,9 @@
       </ul>
     </template>
     <template v-else>
-      <p>Пока нет комментариев</p>
+      <div class="comment__not">
+        <p class="comment__text">Пока нет комментариев</p>
+      </div>
     </template>
   </div>
 </template>
@@ -76,14 +78,15 @@ defineProps({ comments: Array as PropType<Comment[]> });
   // align-items: flex-start;
   list-style: none;
   max-height: 100px;
-  overflow-y: auto;
   &__item {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 8px;
-    margin: 8px 0;
-    padding: 8px 0;
+    margin-right: 8px;
+    padding: 8px;
+    border: 1px solid @blockBorder;
+    border-radius: 16px;
     // min-width: 320px;
     // &:not(.comment__item:first-child) {
     //   border-top: 1px solid @blockBorder;
@@ -103,6 +106,9 @@ defineProps({ comments: Array as PropType<Comment[]> });
     color: @blockTextColor;
     font-weight: 500;
     font-size: 14px;
+  }
+  &__not {
+    height: 78px;
   }
 }
 </style>

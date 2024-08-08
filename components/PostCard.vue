@@ -7,7 +7,7 @@
     </div>
     <p class="postCard__author">{{ post.group?.name ?? post.user.name }}</p>
     <p class="postCard__desc">{{ post.desc }}</p>
-    <div>
+    <div class="postCard__comments">
       <PostComments :comments="post.comments" />
     </div>
     <BaseSocialStat
@@ -54,6 +54,9 @@ defineProps({ post: Object as PropType<Post> });
   &__desc {
     height: 190px;
     border-bottom: 1px solid @blockBorder;
+  }
+  &__comments {
+    margin: 8px 0;
   }
   @media screen and (max-width: 450px) {
     width: auto;
