@@ -29,7 +29,17 @@ export default eventHandler(async (event) => {
     }
     fm.comments = comments
       .filter((c) => c.postId === p.id)
-      .map((c) => ({ ...c, user }));
+      .map((c) => ({
+        ...c,
+        user: users
+          .filter((u) => c.userId === u.id)
+          .map((u) => ({
+            avatar: u.avatar,
+            id: u.id,
+            name: u.name,
+            login: u.login,
+          }))[0],
+      }));
     fm.like = users
       .filter((u) => p.like.includes(u.id))
       .map((u) => ({
