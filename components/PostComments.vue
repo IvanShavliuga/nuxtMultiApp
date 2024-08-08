@@ -2,16 +2,48 @@
   <div>
     <template v-if="comments.length">
       <ul class="comment">
-        <li v-for="c in comments" :key="c.id" class="comment__item">
-          <a class="comment__link" :href="`/users/${c.user.login}`">
-            <BaseAvatar :avatar="c.user.avatar" size="mini" />
-          </a>
-          <div class="comment__info">
-            <p class="comment__name">{{ c.user.name }}</p>
-            <p class="comment__date">{{ c.date }} {{ c.time }}</p>
-            <p class="comment__text">{{ c.text }}</p>
-          </div>
-        </li>
+        <!--
+        SwiperAutoplay,
+        SwiperEffectCreative,
+        SwiperPagination,
+        SwiperMousewheel,
+         :autoplay="{
+            delay: 3000,
+            disableOnInteraction: true,
+          }"
+          :pagination="{
+            el: '#mySwiperProgress',
+            type: 'progressbar',
+            enabled: true,
+            horizontalClass: 'myProgressBar',
+          }"
+          :creative-effect="{
+            prev: {
+              shadow: false,
+              translate: ['-20%', 0, -1],
+            },
+            next: {
+              translate: ['100%', 0, 0],
+            },
+          }"
+          :mousewheel="{
+            invert: true,
+          }"
+        -->
+        <Swiper :slides-per-view="1">
+          <SwiperSlide v-for="c in comments" :key="c.id" style="height: auto">
+            <li class="comment__item">
+              <a class="comment__link" :href="`/users/${c.user.login}`">
+                <BaseAvatar :avatar="c.user.avatar" size="mini" />
+              </a>
+              <div class="comment__info">
+                <p class="comment__name">{{ c.user.name }}</p>
+                <p class="comment__date">{{ c.date }} {{ c.time }}</p>
+                <p class="comment__text">{{ c.text }}</p>
+              </div>
+            </li>
+          </SwiperSlide>
+        </Swiper>
       </ul>
     </template>
     <template v-else>
@@ -24,6 +56,15 @@
 import type { PropType } from "vue";
 import { defineProps } from "vue";
 import type { Comment } from "./../types/news";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+// import {
+//   SwiperAutoplay,
+//   SwiperEffectCreative,
+//   SwiperPagination,
+//   SwiperMousewheel,
+// } from "swiper/modules";
+
 defineProps({ comments: Array as PropType<Comment[]> });
 </script>
 
@@ -34,7 +75,7 @@ defineProps({ comments: Array as PropType<Comment[]> });
   // justify-content: flex-start;
   // align-items: flex-start;
   list-style: none;
-  max-height: 85px;
+  max-height: 100px;
   overflow-y: auto;
   &__item {
     display: flex;
@@ -44,9 +85,9 @@ defineProps({ comments: Array as PropType<Comment[]> });
     margin: 8px 0;
     padding: 8px 0;
     // min-width: 320px;
-    &:not(.comment__item:first-child) {
-      border-top: 1px solid @blockBorder;
-    }
+    // &:not(.comment__item:first-child) {
+    //   border-top: 1px solid @blockBorder;
+    // }
   }
   &__name {
     font-size: 14px;
