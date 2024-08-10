@@ -19,6 +19,14 @@ const load = ref(false);
 addPosts().then(() => {
   load.value = true;
 });
+const r = await useFetch("/api/addnews", {
+  method: "POST",
+  body: {
+    message: "<your-form-data>",
+    name: "<your-form-data>",
+  },
+});
+console.log(r);
 </script>
 
 <style scoped lang="less">
