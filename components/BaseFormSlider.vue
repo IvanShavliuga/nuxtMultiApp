@@ -1,6 +1,12 @@
 <template>
-  <div>
-    <Slider v-model="value" />
+  <div class="sliderComponent">
+    <div class="sliderComponent__box">
+      <div class="sliderComponent__box-item">{{ value[0] }}</div>
+      <div class="sliderComponent__box-item">{{ value[1] }}</div>
+    </div>
+    <div class="sliderComponent__slider">
+      <Slider v-model="value" :tooltips="false" />
+    </div>
   </div>
 </template>
 <script>
@@ -17,4 +23,27 @@ export default {
   },
 };
 </script>
-<style src="@vueform/slider/themes/default.css"></style>
+<style lang="less">
+@import "@vueform/slider/themes/default.css";
+@import "./../assets/styles/global.less";
+.sliderComponent {
+  padding: 16px 0;
+  margin: 16px 0;
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid @blockBorder;
+    margin-bottom: 8px;
+    &-item {
+      flex-grow: 1;
+      padding: 8px;
+      &:first-child {
+        border-right: 1px solid @blockBorder;
+      }
+    }
+  }
+  &__slider {
+    padding-bottom: 8px;
+  }
+}
+</style>
