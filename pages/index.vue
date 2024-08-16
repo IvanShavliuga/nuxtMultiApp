@@ -4,6 +4,7 @@
     <BaseBanner />
     <main class="wrapper">
       <h1 class="headerPage">Последние новости</h1>
+      <BaseFormSlider />
       <PostsList :posts="getNews" />
     </main>
   </NuxtLayout>
