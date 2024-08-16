@@ -4,6 +4,7 @@
     <BaseBanner />
     <main class="wrapper">
       <h1 class="headerPage">Последние новости</h1>
+      <BaseFormSlider />
       <PostsList :posts="getNews" />
     </main>
   </NuxtLayout>
@@ -19,6 +20,14 @@ const load = ref(false);
 addPosts().then(() => {
   load.value = true;
 });
+const r = await useFetch("/api/addnews", {
+  method: "POST",
+  body: {
+    message: "<your-form-data>",
+    name: "<your-form-data>",
+  },
+});
+console.log(r);
 </script>
 
 <style scoped lang="less">

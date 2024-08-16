@@ -2,12 +2,33 @@
   <div>
     <BaseHeader />
     <NuxtPage />
+    <CookieControl locale="en" />
     <BaseFooter />
   </div>
 </template>
 <script setup lang="ts">
 import { useHead } from "nuxt/app";
-
+// import { watch } from 'vue'
+// const {
+//   cookiesEnabled,
+//   cookiesEnabledIds,
+//   isConsentGiven,
+//   isModalActive,
+//   moduleOptions,
+// } = useCookieControl()
+// watch(
+//   () => cookiesEnabledIds.value,
+//   (current, previous) => {
+//     if (
+//       !previous?.includes('google-analytics') &&
+//       current?.includes('google-analytics')
+//     ) {
+//       // cookie with id `google-analytics` got added
+//       window.location.reload() // placeholder for your custom change handler
+//     }
+//   },
+//   { deep: true },
+// )
 useHead({
   title: "Web News Porfolio project",
 });
