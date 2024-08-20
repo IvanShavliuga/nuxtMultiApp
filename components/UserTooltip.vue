@@ -22,6 +22,7 @@ defineProps({ name: String, spec: String, city: String });
   padding: 8px;
   border-radius: 10px;
   border: 1px solid @blockBorder;
+  z-index: 10;
   &::after {
     position: absolute;
     bottom: -9px;
