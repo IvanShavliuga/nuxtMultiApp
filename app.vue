@@ -2,7 +2,7 @@
   <div>
     <BaseHeader />
     <NuxtPage />
-    <CookieControl locale="en" />
+    <!-- <CookieControl locale="en" /> -->
     <BaseFooter />
   </div>
 </template>
