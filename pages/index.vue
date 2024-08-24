@@ -5,7 +5,7 @@
     <main class="wrapper">
       <h1 class="headerPage">Последние новости</h1>
       <!-- <BaseFormSlider /> -->
-      <BaseInput label="Фильтр" idKey="filters"/>
+      <FilterPosts />
       <PostsList :posts="getNews" />
     </main>
   </NuxtLayout>
