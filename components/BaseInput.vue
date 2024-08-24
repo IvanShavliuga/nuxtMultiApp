@@ -1,7 +1,13 @@
 <template>
   <div class="inputBox">
     <label class="inputBox__label" :for="idKey"> {{ label }}</label>
-    <input class="inputBox__input" :id="idKey" type="text" :name="idKey" @input="handlerInput" />
+    <input
+      :id="idKey"
+      class="inputBox__input"
+      type="text"
+      :name="idKey"
+      @input="handlerInput"
+    />
   </div>
 </template>
 
@@ -26,24 +32,25 @@ function handlerInput({ target }) {
 <style lang="less" scoped>
 @import "./assets/styles/global.less";
 .inputBox {
-    display: inline-block;
-    border: 1px solid @blockColor;
-    border-radius: @blockRadius;
-    padding: @blockPadding;
-    background-color: @blockColor;
-    &__label {
-        display: block;
-        color: @blockTextColor;
-        font-size: 16px;
-        font-weight: 500;
-    }
-    &__input {
-         border: 1px solid @blockTextColor;
-         padding: 5px 7px;
-        font-size: 16px;
-        color: @blockTextColor;
-                font-weight: 500;
-                border-radius: 8px;
-    }
+  display: inline-block;
+  border: 1px solid @blockColor;
+  border-radius: @blockRadius;
+  padding: @blockPadding;
+  background-color: @blockColor;
+  &__label {
+    display: block;
+    color: @blockTextColor;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  &__input {
+    border: 1px solid @blockTextColor;
+    padding: 5px 7px;
+    font-size: 16px;
+    color: @blockTextColor;
+    font-weight: 500;
+    border-radius: 8px;
+    outline: none;
+  }
 }
 </style>
