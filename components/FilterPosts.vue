@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <BaseInput label="Фильтр" id-key="filters" />
+  <div class="filters">
+    <BaseInput label="Категория" id-key="filters" />
   </div>
 </template>
 
@@ -8,4 +8,8 @@
 export default {};
 </script>
 
-<style></style>
+<style lang="less" scoped>
+.filters {
+    margin: 16px 0;
+}
+</style>

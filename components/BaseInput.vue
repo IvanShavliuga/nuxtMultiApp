@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <label :for="idKey"> {{ label }}</label>
-    <input :id="idKey" type="text" :name="idKey" @input="handlerInput" />
+  <div class="inputBox">
+    <label class="inputBox__label" :for="idKey"> {{ label }}</label>
+    <input class="inputBox__input" :id="idKey" type="text" :name="idKey" @input="handlerInput" />
   </div>
 </template>
 
@@ -23,4 +23,27 @@ function handlerInput({ target }) {
 // const avatars = group.value.followers.map((f) => f.avatar);
 </script>
 
-<style></style>
+<style lang="less" scoped>
+@import "./assets/styles/global.less";
+.inputBox {
+    display: inline-block;
+    border: 1px solid @blockColor;
+    border-radius: @blockRadius;
+    padding: @blockPadding;
+    background-color: @blockColor;
+    &__label {
+        display: block;
+        color: @blockTextColor;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    &__input {
+         border: 1px solid @blockTextColor;
+         padding: 5px 7px;
+        font-size: 16px;
+        color: @blockTextColor;
+                font-weight: 500;
+                border-radius: 8px;
+    }
+}
+</style>
